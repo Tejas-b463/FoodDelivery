@@ -1,0 +1,28 @@
+{
+    "name": "food-delivery",
+    "version": "1.0.0",
+    "description": "Food Delivery App",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git remote add origin https://github.com/Tejas-b463/FoodDelivery.git"
+    },
+    "keywords": [
+        "online",
+        "Food",
+        "Delivery",
+        "App"
+    ],
+    "author": "Tejas Banait",
+    "license": "ISC",
+    "devDependencies": {
+        "parcel": "^2.9.3",
+        "process": "^0.11.10"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}
