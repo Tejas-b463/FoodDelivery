@@ -1,5 +1,137 @@
-#heading {
-    color: red;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 25 px;
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cabin", sans-serif;
+}
+
+
+/* header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.links>ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-size: 18px;
+}
+
+
+/* Body */
+
+.body {
+    padding: 10px;
+}
+
+.search {
+    text-align: center;
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.rescard-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.res-container {
+    padding: 10px;
+    width: 300px;
+    height: 38 0px;
+    border-radius: 20px;
+    border-color: rgb(255, 255, 255);
+    padding: 1rem;
+}
+
+.res-container:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card-section {
+    padding: 10px;
+}
+
+span {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.card-name {
+    line-height: 1.2;
+    margin-block-end: 0px;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1.7rem;
+    margin: 0.8rem 0px 0.6rem;
+    max-width: 80%;
+    color: rgb(28, 28, 28);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-cuisine {
+    font-size: inherit;
+    line-height: 1.5;
+    margin: 0px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(105, 105, 105);
+    max-width: 56%;
+    padding: 0px 0px 0.4rem;
+}
+
+.card-price {
+    line-height: 1.5;
+    margin: 0px;
+    text-align: right;
+    white-space: nowrap;
+    color: rgb(105, 105, 105);
+    max-width: 30%;
+    padding: 0px 0px 0.4rem;
+}
+
+.card-deliverytime {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: rgb(54, 54, 54);
+}
+
+.card-rating {
+    background-color: rgb(68, 172, 96);
+    border-radius: 12px;
+    width: 55px;
+    align-items: center;
+    text-align: center;
+    margin-right: 0.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: inherit;
+    padding-bottom: 0.1rem;
 }
