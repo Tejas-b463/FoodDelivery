@@ -14,8 +14,21 @@ Body
         -cuisines
         -delivery time
 
-Fooder
+Footer
   - copyright
   - links
   - address
   - contact
+
+
+Different Compoenents
+  - Header
+  - Body
+  - Restaurants Cards
+
+Utils
+  - constants
+  - mockData
+
+Filter Top Rated Restaurants
+  - Ratings 4.0+
