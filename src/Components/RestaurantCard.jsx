@@ -10,7 +10,7 @@ const RestaurantCard = (props) =>{
       <div className="card-section">
        
            <h4 className="card-name">{name}</h4>
-           <p className="card-cuisine">{cuisines.join(", ")}</p>
+           <p className="card-cuisine">{cuisines.join(",")}</p>
          
             <h4 className="card-rating">{avgRating} &#9734;</h4>
             <p className="card-price">₹ {resData.info.feeDetails.totalFee / 10} for two</p>

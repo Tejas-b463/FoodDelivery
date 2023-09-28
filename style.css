@@ -47,6 +47,24 @@ a {
     padding: 10px;
 }
 
+.search {
+    padding: 20px;
+}
+
+.search-box {
+    padding: 5px;
+    width: 20%;
+}
+
+.search-btn {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+}
+
 .filter {
     text-align: center;
     padding: 20px;
@@ -176,4 +194,12 @@ span {
     padding: 20px;
     height: 250px;
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* Error Page */
+
+.error {
+    text-align: center;
+    padding: 50px;
 }
