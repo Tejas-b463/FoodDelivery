@@ -1,4 +1,4 @@
-#Food Delivery 🚀
+# Food Delivery 🚀
 
  Header
   - logo
@@ -32,3 +32,12 @@ Utils
 
 Filter Top Rated Restaurants
   - Ratings 4.0+
+
+Routing
+- createBrowserRouter
+- RouterProvider
+- Link
+- Error Page
+- Error element
+- use route Hook
+- Outlet
