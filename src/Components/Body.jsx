@@ -2,7 +2,10 @@ import RestaurantCard from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
-import "../../style.css"
+import "../../style.css";
+import { Link } from "react-router-dom";
+
+
 
 
 const Body = () =>{
@@ -19,15 +22,19 @@ const Body = () =>{
 
    const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=20.9319821&lng=77.7523039" 
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING" 
     );
     const jsonData = await data.json();
+    console.log(jsonData)
     // console.log(jsonData);
     // optional Chaining
-    SetlistOfRestaustant(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurats(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+    
+    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
+
 
    
 // Conditioal Rendering
@@ -65,7 +72,11 @@ const Body = () =>{
         </div>
         <div className="rescard-container">
           {filteredRestaurants?.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={ restaurant}/>))
+         <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
+            <RestaurantCard resData={ restaurant}/>
+            </Link>
+            
+          ))
           }
         </div>
     </div>

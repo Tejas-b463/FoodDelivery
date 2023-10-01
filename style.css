@@ -203,3 +203,32 @@ span {
     text-align: center;
     padding: 50px;
 }
+
+
+/* Restaurants Menu */
+
+summary {
+    cursor: pointer;
+}
+
+.res-menu-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.menu {
+    margin-top: 40px;
+}
+
+.menu-card-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+.right img {
+    width: 120px;
+    height: 100px;
+    border-radius: 10px;
+}
