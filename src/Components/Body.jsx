@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
 import "../../style.css";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 
@@ -28,19 +29,18 @@ const Body = () =>{
     console.log(jsonData)
     // console.log(jsonData);
     // optional Chaining
-    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
     
-    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
 
 
    
-// Conditioal Rendering
-  //  if(listOfRestaustant.length === 0){
-  //   return <Shimmer/>
-  //  }
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) return <h1>Plase Check Your Internet Connection !!!</h1>
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
     <div className="body">

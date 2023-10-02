@@ -14,7 +14,6 @@ const RestaurantCard = (props) =>{
          
             <h4 className="card-rating">{avgRating} &#9734;</h4>
             <p className="card-price">₹ {resData.info.feeDetails.totalFee / 10} for two</p>
-            <span className="card-deliverytime">Delivery Time : {resData.info.sla.deliveryTime} min</span>
             <p>{locality}</p>
         </div>
   </div>
