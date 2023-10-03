@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
-import "../../style.css";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -27,11 +26,8 @@ const Body = () =>{
     );
     const jsonData = await data.json();
     console.log(jsonData)
-    // console.log(jsonData);
-    // optional Chaining
-    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-    
+    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
@@ -43,14 +39,14 @@ const Body = () =>{
     if(onlineStatus === false) return <h1>Plase Check Your Internet Connection !!!</h1>
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
-    <div className="body">
-        <div className="filter">
-          <div className="search">
-            <input className="search-box" id="search" type="text" value={searchText} 
+    <div className="">
+        <div className="flex justify-center items-center gap-x-10">
+          <div className="">
+            <input className="bg-slate-200 " id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} />
-            <button className="search-btn" onClick={()=>{
+            <button className="text-md font-medium" onClick={()=>{
               // Filter the restaurant cards and update the UI
               // SearchText
               console.log(searchText);
@@ -62,7 +58,7 @@ const Body = () =>{
 
             }}>Search</button>
           </div>
-           <button onClick={()=>{
+           <button className="text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
@@ -70,7 +66,7 @@ const Body = () =>{
               setFilteredRestaurats(filteredList)
            }}> Ratings 4.0+ </button>
         </div>
-        <div className="rescard-container">
+        <div className="flex flex-wrap items-center justify-evenly mt-10">
           {filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>

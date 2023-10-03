@@ -1,22 +1,22 @@
 import { MENU_IMG } from "../utils/constant";
-const RestaurantMenuCard = (props) =>{
-
-    const{resMenu} = props;
-
-    const{name,price,imageId} = resMenu?.card?.info;
-    
+import ItemList from "./ItemList";
+const RestaurantMenuCard = ({data}) =>{
+  
+            
 
     return(
-        <div className="menu-card-container"> 
-            <div className="left">
-        <h4>{name}</h4>
-        <p>₹ {price/100}</p>
-        </div>
-        <div className="right">
-        <img src={MENU_IMG + imageId } alt="" />
-        </div>
-       
+      <div>
+  {/* header  */}
+    <div className="mx-auto my-6 w-6/12 bg-gray-50 shadow-lg p-4">
+      <div className="flex justify-between">
+      <span className="font-bold text-lg">{data.title} ({data.itemCards.length})</span>
+      <span>🔻</span>
       </div>
+       {/* Accordian */}
+ <ItemList items={data.itemCards}/>
+    </div>
+   
+    </div>
     )
 }
 export default RestaurantMenuCard;
