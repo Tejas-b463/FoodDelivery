@@ -16,11 +16,10 @@ const RestaurantMenu = () =>{
 
   const{name,cuisines} = resMenu?.cards[0]?.card?.card?.info;
 
-  const{itemCards} = resMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-
+  // const{itemCards} = resMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   // console.log(itemCards)
  const categories = 
-  resMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     (c) => 
     c.card?.card?.["@type"] === 
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -35,13 +34,12 @@ const RestaurantMenu = () =>{
     <p className="font-medium text-lg">{cuisines.join(", ")}</p>
     </div>
    
-    <div className="menu">
-   
-     
-     {categories?.map((category) =>{
-      <RestaurantMenuCard data={category?.card?.card}/>
-     })  
-   }
+    <div className="">
+   {/* categories accordions */}
+  {categories?.map((category)=>(
+    <RestaurantMenuCard key={category.card.card.title} data={category?.card?.card}/>
+  ))}
+    
   
      </div>
       </div>
