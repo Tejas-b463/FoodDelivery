@@ -5,13 +5,19 @@ import Body from "./Components/Body"
 import About from "./Components/About"
 import Contact from "./Components/Contact";
 import Error from "./Components/Error"
+import Shimmer from "./Components/Shimmer";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+
 
 const About = lazy(() => import("./Components/About"));
 
 
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Shimmer from "./Components/Shimmer";
+
+import "slick-carousel/slick/slick.css";
+
+import "slick-carousel/slick/slick-theme.css";
 
 
 

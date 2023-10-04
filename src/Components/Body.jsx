@@ -1,9 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-// import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import CarouselTop from "./CarouselTop";
 
 
 
@@ -25,7 +25,7 @@ const Body = () =>{
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING" 
     );
     const jsonData = await data.json();
-    console.log(jsonData)
+    // console.log(jsonData)
 
     SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -39,14 +39,20 @@ const Body = () =>{
     if(onlineStatus === false) return <h1>Plase Check Your Internet Connection !!!</h1>
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
-    <div className="">
-        <div className="flex justify-center items-center gap-x-10">
-          <div className="">
-            <input className="bg-slate-200 " id="search" type="text" value={searchText} 
+      
+    <div className="m-16">
+      <div className="">
+      <CarouselTop/>
+      </div>
+      <div className="">
+        <h1 className=" mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
+        <div className="text-center gap-x-10">
+          {/* <div className="">
+            <input className="bg-slate-200 border-2" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} />
-            <button className="text-md font-medium" onClick={()=>{
+            <button className="mt-5 text-md font-medium ml-3" onClick={()=>{
               // Filter the restaurant cards and update the UI
               // SearchText
               console.log(searchText);
@@ -57,16 +63,42 @@ const Body = () =>{
               setFilteredRestaurats(searchList);
 
             }}>Search</button>
-          </div>
-           <button className="text-md font-medium" onClick={()=>{
+          </div> */}
+          <div className="mt-5">
+           <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
            }}> Ratings 4.0+ </button>
+            <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+              const filteredList = listOfRestaustant?.filter(
+                (res) => res.info.avgRating > 4
+              );
+              SetlistOfRestaustant(filteredList);
+              setFilteredRestaurats(filteredList)
+           }}> Fast Devlivery </button>
+            <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+              const filteredList = listOfRestaustant?.filter(
+                (res) => res.info.avgRating > 4
+              );
+              SetlistOfRestaustant(filteredList);
+              setFilteredRestaurats(filteredList)
+           }}> ₹ 300 - ₹ 600 </button>
+             <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+              const filteredList = listOfRestaustant?.filter(
+                (res) => res.info.avgRating > 4
+              );
+              SetlistOfRestaustant(filteredList);
+              setFilteredRestaurats(filteredList)
+           }}> Less than ₹ 300 </button>
+           </div>
+           
         </div>
-        <div className="flex flex-wrap items-center justify-evenly mt-10">
+        </div>
+        <div className="my-4 ">
+          <div className="flex flex-wrap item-center justify-center gap-8">
           {filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
@@ -74,6 +106,7 @@ const Body = () =>{
             
           ))
           }
+          </div>
         </div>
     </div>
     )
