@@ -42,4 +42,10 @@ Routing
 - use route Hook
 - Outlet
 
-
+# Redux Toolkit
+  - Install @reduxjs/toolkit and react-redux
+  - Build our Store
+  - Connect our Store to our app
+  - Slice (cartSlice)
+  - dispatch(action)
+  - Selector

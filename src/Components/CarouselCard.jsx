@@ -20,7 +20,7 @@ const CarouselTop = () =>{
         setCarouselImg(json.data)
     }
    
-    const image = carouselImg?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.info;
+    const image = carouselImg?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle?.info;
     console.log(image);
 
     function SampleNextArrow(props) {
@@ -50,14 +50,14 @@ const CarouselTop = () =>{
         infinite: true,
         arrows:false,
         speed: 700,
-        slidesToShow: 6,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 2,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
               slidesToShow: 3,
-              slidesToScroll: 1,
+              slidesToScroll: 2,
               infinite: true,
               dots: true
             }
@@ -84,11 +84,11 @@ const CarouselTop = () =>{
       }
 
      
-        return carouselImg === null ? <ShimmerCarousel/> : (
+        return carouselImg === null ? <ShimmerCarousel/> :  (
           <div className="mx-16">
           <div className="flex items-center justify-between">
           <div className="mx-10">
-           <h1 className="font-black text-3xl">What's on your mind?</h1>
+           <h1 className="font-black text-3xl">Best offers for you</h1>
           </div>
           <div className="">
            <button className="text-lg font-large px-1.5 text-4xl bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
@@ -99,7 +99,7 @@ const CarouselTop = () =>{
               {
                 image?.map((pic)=>(
                  <div className="p-5" key={pic.id}>
-                 <img className="w-56 cursor-pointer" src={CDN_URL+pic.imageId} alt="" />
+                 <img className="w-96 cursor-pointer" src={CDN_URL+pic.imageId} alt="" />
                  </div>
                 ))
                }

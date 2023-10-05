@@ -1,9 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
-import { Link } from "react-router-dom";
+import { Link, Route, Routes, json } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import CarouselTop from "./CarouselTop";
+import CarouselCard from "./CarouselCard"
+
 
 
 
@@ -32,7 +34,7 @@ const Body = () =>{
    };
   
 
-
+    
    
     const onlineStatus = useOnlineStatus();
 
@@ -42,10 +44,11 @@ const Body = () =>{
       
     <div className="m-16">
       <div className="">
-      <CarouselTop/>
+        <CarouselCard/>
+       <CarouselTop/>
       </div>
       <div className="">
-        <h1 className=" mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
+        <h1 className="mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
         <div className="text-center gap-x-10">
           {/* <div className="">
             <input className="bg-slate-200 border-2" id="search" type="text" value={searchText} 
@@ -65,30 +68,31 @@ const Body = () =>{
             }}>Search</button>
           </div> */}
           <div className="mt-5">
-           <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+           <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500 mx-2 hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" 
+           onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
            }}> Ratings 4.0+ </button>
-            <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+            <button className=" opacity-50 cursor-not-allowed mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
            }}> Fast Devlivery </button>
-            <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+            <button className="opacity-50 cursor-not-allowed disabled:opacity-75 mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
            }}> ₹ 300 - ₹ 600 </button>
-             <button className="mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+             <button className="opacity-50 cursor-not-allowed mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.avgRating > 4
+                (res) => res.info.feeDetails.totalFee / 10 < 300
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
@@ -108,7 +112,9 @@ const Body = () =>{
           }
           </div>
         </div>
+      
     </div>
+  
     )
 }
 export default Body;

@@ -1,44 +1,63 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {BiSolidOffer} from "react-icons/bi"
+import {LiaPizzaSliceSolid} from "react-icons/lia"
+import { LOGO_URL } from "../utils/constant";
+import {SiBigcartel} from "react-icons/si"
+import { useSelector } from "react-redux";
+
+
 
 
 
 
 const Header = () =>{
+    
+   
+
     const[btnNameReact, setBtnNameReact] = useState("Sign In")
 
+    // Subscribing to the store using a selector
+    const cartItems = useSelector((store)=>store.cart.items);
+    console.log(cartItems)
+
     return(
-       <nav className="flex justify-between px-10 py-5">
-       <div>
-       <h1 className="text-3xl font-bold">
-        <Link to="/">InstantEats</Link>
-       </h1>
-       </div>
-       <div className="flex justify-between">
-           <ul className="flex gap-x-10">
-               <li className="font-medium text-xl">
-                <Link to="/">Home</Link>
-                </li>
-               <li className="font-medium text-xl">
-                <Link to="/about">About</Link>
-                </li>
-               <li className="font-medium text-xl">
-                <Link to="/contact">Contact</Link>
-                </li>
-            </ul>
+    <nav className="flex justify-between items-center px-10 py-5 shadow-lg">
+          <div>
+             <h1 className="text-3xl font-bold  ">
+              <Link className="flex item-center" to="/">InstantEats 
+              <img className="w-12 h-10 mx-1" src={LOGO_URL} alt="" />
+              </Link>
+             </h1>
+          </div>
+            <div className="flex justify-between items-center">
+               <ul className="flex gap-x-10">
+                   <li className=" text-lg">
+                    <Link className="flex items-center text-[rgba(0,0,0,0.7)]" to="/">Home</Link>
+                    </li>
+                   <li className="text-lg ">
+                    <Link className="flex items-center text-[rgba(0,0,0,0.7)]" to="/about"><BiSolidOffer className="text-md text-[#ef4444] mx-1"/> Offers</Link>
+                    </li>
+                   <li className="text-lg">
+                    <Link className="flex items-center text-[rgba(0,0,0,0.7)]" to="/contact"> Help</Link>
+                    </li>
+                </ul>
             </div>
-            <div className="font-medium">
-               <button className="text-xl "
-               onClick={()=>{
-                btnNameReact === "Sign In" ?
-                setBtnNameReact("Sign Out")
-                : setBtnNameReact("Sign In")
-               }}>
-                {btnNameReact}
-               </button>
-               </div>
-           
-     
+            <div className="flex text-lg">
+               <li className="px-4 font-bold text-xl">
+                <Link to="/cart">  Cart - ({cartItems.length})</Link>
+               </li>
+            </div>
+                <div className="">
+                    <button className="text-lg flex items-center text-[rgba(0,0,0,0.7)] "
+                    onClick={()=>{
+                     btnNameReact === "Sign In" ?
+                     setBtnNameReact("Sign Out")
+                     : setBtnNameReact("Sign In")
+                    }}>
+                     {btnNameReact}
+                    </button>
+                 </div>
      </nav>
     )
 }

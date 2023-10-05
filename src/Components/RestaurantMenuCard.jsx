@@ -1,22 +1,23 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
+import {IoIosArrowDown} from 'react-icons/io'
 
-const RestaurantMenuCard = ({data}) =>{
+// controlled compoenents
+const RestaurantMenuCard = ({data,showItems,setShowIndex}) =>{
+// when he has won state that's uncontrolled componenets
 
-  const[showItems, setShowItems] = useState(false)
 
   const handleClick = () =>{
-       setShowItems(!showItems)
+      //  setShowItems(!showItems)
+    setShowIndex();
   }
-  
   return(
     <div>
     {/* Headers */}
-    <div className="w-6/12 bg-gray-50 shadow-lg p-4 mx-auto my-8">
+    <div className="w-6/12 p-4 mx-auto my-8">
       <div className="flex justify-between cursor-pointer"
        onClick={handleClick}>
       <span className="font-bold text-lg">{data.title} ({data.itemCards.length})</span>
-      <span>⬇️</span>
+      <span><IoIosArrowDown/></span>
       </div>
       {/* Accordian Body */}
      { showItems &&  <ItemList items={data.itemCards}/>}

@@ -8,6 +8,9 @@ import Error from "./Components/Error"
 import Shimmer from "./Components/Shimmer";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {Provider} from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./Components/Cart"
 
 
 
@@ -16,18 +19,21 @@ const About = lazy(() => import("./Components/About"));
 
 
 import "slick-carousel/slick/slick.css";
-
 import "slick-carousel/slick/slick-theme.css";
+import { Provider } from "react-redux";
+
 
 
 
 const App = () =>{
 
     return(
+        <Provider store={appStore}>
         <div className="app">
         <Header/>
         <Outlet/>
      </div>
+     </Provider>
     )
 }
 
@@ -55,6 +61,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/restaurants/:resId",
                 element:<RestaurantMenu/>
+            },
+            {
+               path:"/cart",
+               element:<Cart/>
             }
     
         ],
