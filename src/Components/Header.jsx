@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {BiSolidOffer} from "react-icons/bi"
-import {LiaPizzaSliceSolid} from "react-icons/lia"
+import {SiCarto} from "react-icons/si"
 import { LOGO_URL } from "../utils/constant";
 import {SiBigcartel} from "react-icons/si"
 import { useSelector } from "react-redux";
@@ -43,12 +43,16 @@ const Header = () =>{
                     </li>
                 </ul>
             </div>
-            <div className="flex text-lg">
-               <li className="px-4 font-bold text-xl">
-                <Link to="/cart">  Cart - ({cartItems.length})</Link>
-               </li>
+            <div className="flex items-center">
+            <div className="text-lg">
+               <div className="px-4 font-bold text-xl">
+                <Link className="flex" to="/cart">
+                    <SiCarto className=" text-7xl "/>
+                    <p className="text-lg bg-[#ef4444] text-white px-1 rounded-full h-6">{cartItems.length}</p>
+                </Link>
+               </div>
             </div>
-                <div className="">
+                
                     <button className="text-lg flex items-center text-[rgba(0,0,0,0.7)] "
                     onClick={()=>{
                      btnNameReact === "Sign In" ?

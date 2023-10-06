@@ -5,6 +5,7 @@ import { Link, Route, Routes, json } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
+import {LuSearch} from "react-icons/lu"
 
 
 
@@ -42,31 +43,28 @@ const Body = () =>{
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
       
-    <div className="m-16">
+    <div className="m-10">
       <div className="">
         <CarouselCard/>
        <CarouselTop/>
       </div>
       <div className="">
         <h1 className="mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
-        <div className="text-center gap-x-10">
-          {/* <div className="">
-            <input className="bg-slate-200 border-2" id="search" type="text" value={searchText} 
+        <div className="mx-24 gap-x-10">
+          <div className="mt-4">
+            <input className="shadow-sm border-2 w-56 h-8" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} />
-            <button className="mt-5 text-md font-medium ml-3" onClick={()=>{
+            <button className="font-medium absolute p-2 left-[20.5rem]" onClick={()=>{
               // Filter the restaurant cards and update the UI
               // SearchText
-              console.log(searchText);
-
               const searchList = listOfRestaustant?.filter((res)=>
                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredRestaurats(searchList);
-
-            }}>Search</button>
-          </div> */}
+            }}><LuSearch/></button>
+          </div>
           <div className="mt-5">
            <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500 mx-2 hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" 
            onClick={()=>{

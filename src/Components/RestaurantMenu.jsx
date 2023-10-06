@@ -4,6 +4,8 @@ import RestaurantMenuCard from "./RestaurantMenuCard"
 import { useParams } from "react-router-dom";
 import useRetaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
+import {ImStarEmpty} from "react-icons/im"
+import { CDN_URL } from "../utils/constant";
 
 
 
@@ -17,7 +19,8 @@ const RestaurantMenu = () =>{
 
   if(resMenu === null) return <Shimmer/>
 
-  const{name,cuisines,areaName,city,avgRating,totalRatingsString} = resMenu?.cards[0]?.card?.card?.info;
+  const{name,cuisines,areaName,city,avgRating,totalRatingsString,cloudinaryImageId
+  } = resMenu?.cards[0]?.card?.card?.info;
 
   // const{itemCards} = resMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   // console.log(itemCards)
@@ -33,14 +36,19 @@ const RestaurantMenu = () =>{
   return (
     <div className="">
     <div className="my-8 flex items-center justify-center   gap-x-96 text-left">
-      <div className="">
-    <h1 className="font-bold text-2xl py-1">{name}</h1>
-    <p className=" overflow-hidden text-ellipsis whitespace-nowrap w-[120%] leading-tight text-[rgb(0,0,0,0.7)]">{cuisines.join(", ")}</p>
-    <p>{areaName}, {city}</p>
+      <div className="flex">
+        <div>
+        <img className="w-20 mx-3 rounded-lg" src={CDN_URL+cloudinaryImageId} alt="" />
+        </div>
+        <div>
+    <h1 className="font-bold text-2xl">{name}</h1>
+    <p className="my-1 overflow-hidden text-ellipsis whitespace-nowrap w-[120%] leading-tight text-[rgb(0,0,0,0.5)]">{cuisines.join(", ")}</p>
+    <p className="leading-tight text-[rgb(0,0,0,0.6)]">{areaName}, {city}</p>
     </div>
-    <div>
-    <h6 className="bg-green-600 text-white rounded-lg m-2 p-2">&#11088;{avgRating}</h6>
-    <p>{totalRatingsString}</p>
+    </div>
+    <div className="">
+    <h6 className="bg-green-600 flex text-white py-2 px-1 rounded-lg items-center m-1"><ImStarEmpty className="mx-1"/>{avgRating}</h6>
+    <p leading-tight className="text-[rgb(0,0,0,0.5)] text-sm">{totalRatingsString}</p>
     </div>
     </div>
   
