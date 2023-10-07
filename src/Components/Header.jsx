@@ -22,7 +22,7 @@ const Header = () =>{
     console.log(cartItems)
 
     return(
-    <nav className="flex justify-between items-center px-10 py-5 shadow-lg">
+    <nav className="flex justify-between items-center px-10 py-2 shadow-lg">
           <div>
              <h1 className="text-3xl font-bold  ">
               <Link className="flex item-center" to="/">InstantEats 

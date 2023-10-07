@@ -1,11 +1,12 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer"
-import { Link, Route, Routes, json } from "react-router-dom";
+import { Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
 import {LuSearch} from "react-icons/lu"
+// import  {CAROUSEL_DATA} from "../utils/constant"
 
 
 
@@ -25,13 +26,13 @@ const Body = () =>{
 
    const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING" 
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=18.5204303&lng=73.8567437"
     );
     const jsonData = await data.json();
-    // console.log(jsonData)
+    console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurats(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
    };
   
 

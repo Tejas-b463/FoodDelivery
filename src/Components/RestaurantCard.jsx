@@ -15,8 +15,8 @@ const RestaurantCard = (props) =>{
            <div className="flex justify-between items-center ">
             <h4 className="bg-green-600 text-white rounded-lg m-2 p-2">{avgRating} &#9734;</h4>
             <div className="p-2">
-            <p className="leading-tight text-[rgb(0,0,0,0.7)]">₹ {resData.info.feeDetails.totalFee / 10} for two</p>
-            <p>{resData.info.sla.deliveryTime} min</p>
+            <p className="leading-tight text-[rgb(0,0,0,0.7)]">₹ {resData.info.costForTwo / 10} for two</p>
+            <p>{resData.info.sla.slaString} min</p>
             </div>
             </div>
       </div>

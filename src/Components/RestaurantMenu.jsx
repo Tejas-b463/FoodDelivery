@@ -22,8 +22,6 @@ const RestaurantMenu = () =>{
   const{name,cuisines,areaName,city,avgRating,totalRatingsString,cloudinaryImageId
   } = resMenu?.cards[0]?.card?.card?.info;
 
-  // const{itemCards} = resMenu?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-  // console.log(itemCards)
  const categories = 
   resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     (c) => 

@@ -1,26 +1,23 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { CDN_URL } from "../utils/constant"
 import Slider from "react-slick";
 import ShimmerCarousel from "./ShimmerCarousel";
+import { useParams } from "react-router-dom";
+import useCarouselTop from "../utils/useCarouselTop"
+
 
 
 
 const CarouselTop = () =>{
     const slider = useRef(null)
-    const[carouselImg, setCarouselImg] = useState(null)
    
-    useEffect(()=>{
-         fetchImages();
-    },[])
 
-    const fetchImages = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        console.log(json);
-        setCarouselImg(json.data)
-    }
+    const carouselId = useParams();
+
+    const carouselImg = useCarouselTop(carouselId)
    
-    const image = carouselImg?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.info;
+   
+    const image = carouselImg?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
     console.log(image);
 
     function SampleNextArrow(props) {
@@ -98,8 +95,9 @@ const CarouselTop = () =>{
            <Slider ref={slider} {...settings}>
               {
                 image?.map((pic)=>(
-                 <div className="p-5" key={pic.id}>
-                 <img className="w-56 cursor-pointer" src={CDN_URL+pic.imageId} alt="" />
+                 <div className="p-5" key={pic.info.id}>
+                 <img className="w-56 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pic.info.cloudinaryImageId
+} alt="" />
                  </div>
                 ))
                }

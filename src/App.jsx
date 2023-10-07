@@ -11,18 +11,14 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import {Provider} from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./Components/Cart"
-
-
+import Footer from "./Components/Footer"
 
 const About = lazy(() => import("./Components/About"));
 
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { Provider } from "react-redux";
-
-
 
 
 const App = () =>{
@@ -32,6 +28,7 @@ const App = () =>{
         <div className="app">
         <Header/>
         <Outlet/>
+        <Footer/>
      </div>
      </Provider>
     )
@@ -44,7 +41,7 @@ const appRouter = createBrowserRouter([
         children:[
             {
                path:"/",
-               element:<Body/>,
+               element:<Body/>
             },
             {
                 path:"/about",
