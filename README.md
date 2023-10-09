@@ -1,6 +1,6 @@
 # Food Delivery 🚀
 <p align="center">
-  <img src="./home.png" width="350">
+  <img src="./home.png" width="550">
   </p>
  Header
   - logo
