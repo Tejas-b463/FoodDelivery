@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import {CAROUSEL_DATA} from "../utils/constant"
+import { SWIGGY_API } from "./constant";
+
 
 const useCarouselCard = (carouselId) =>{
 
@@ -10,7 +11,7 @@ const useCarouselCard = (carouselId) =>{
        },[])
 
     const fetchImages = async() =>{
-        const data = await fetch(CAROUSEL_DATA + carouselId);
+        const data = await fetch(SWIGGY_API + carouselId);
         const json = await data.json();
         // console.log(json);
         setCarouselImg(json.data)

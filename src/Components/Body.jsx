@@ -6,9 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
 import {LuSearch} from "react-icons/lu"
-// import  {CAROUSEL_DATA} from "../utils/constant"
-
-
+import { SWIGGY_API } from "../utils/constant";
 
 
 
@@ -18,21 +16,19 @@ const Body = () =>{
 
     const[searchText, setSearchText] = useState("");
 
-    console.log("body render");
-
    useEffect(()=>{
     fetchData();
    },[])
 
    const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=18.5204303&lng=73.8567437"
+    SWIGGY_API
     );
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurats(jsonData?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
 
@@ -46,8 +42,8 @@ const Body = () =>{
       
     <div className="m-10">
       <div className="">
-        <CarouselCard/>
        <CarouselTop/>
+       <CarouselCard/>
       </div>
       <div className="">
         <h1 className="mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
@@ -106,7 +102,6 @@ const Body = () =>{
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
             </Link>
-            
           ))
           }
           </div>

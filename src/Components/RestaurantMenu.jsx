@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 import useRetaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
 import {ImStarEmpty} from "react-icons/im"
-import { CDN_URL } from "../utils/constant";
-
+// import { MENU_IMG } from "../utils/constant";
 
 
 const RestaurantMenu = () =>{
@@ -36,7 +35,7 @@ const RestaurantMenu = () =>{
     <div className="my-8 flex items-center justify-center   gap-x-96 text-left">
       <div className="flex">
         <div>
-        <img className="w-20 mx-3 rounded-lg" src={CDN_URL+cloudinaryImageId} alt="" />
+        <img className="w-20 mx-3 rounded-lg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+cloudinaryImageId} alt="" />
         </div>
         <div>
     <h1 className="font-bold text-2xl">{name}</h1>
@@ -49,7 +48,6 @@ const RestaurantMenu = () =>{
     <p leading-tight className="text-[rgb(0,0,0,0.5)] text-sm">{totalRatingsString}</p>
     </div>
     </div>
-  
     <div className="">
    {/* categories accordions */}
   {categories?.map((category,index)=>(
@@ -59,8 +57,6 @@ const RestaurantMenu = () =>{
     setShowIndex={()=>setShowIndex(index)}
     />
   ))}
-    
-  
      </div>
       </div>
   )

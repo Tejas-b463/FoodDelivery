@@ -1,5 +1,4 @@
 import { useRef } from "react"
-import { CDN_URL } from "../utils/constant"
 import Slider from "react-slick";
 import ShimmerCarousel from "./ShimmerCarousel";
 import { useParams } from "react-router-dom";
@@ -17,8 +16,8 @@ const CarouselTop = () =>{
     const carouselImg = useCarouselTop(carouselId)
    
    
-    const image = carouselImg?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
-    console.log(image);
+    const image = carouselImg?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
+   
 
     function SampleNextArrow(props) {
       const { className, style, onClick } = props;
@@ -47,8 +46,8 @@ const CarouselTop = () =>{
         infinite: true,
         arrows:false,
         speed: 700,
-        slidesToShow: 6,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 2,
         responsive: [
           {
             breakpoint: 1024,
@@ -95,8 +94,9 @@ const CarouselTop = () =>{
            <Slider ref={slider} {...settings}>
               {
                 image?.map((pic)=>(
-                 <div className="p-5" key={pic.info.id}>
-                 <img className="w-56 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pic.info.cloudinaryImageId
+                 <div className="p-5" key={pic?.id}>
+                 <img className="w-96 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pic?.imageId
+
 } alt="" />
                  </div>
                 ))

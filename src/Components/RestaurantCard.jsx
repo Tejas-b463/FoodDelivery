@@ -7,7 +7,7 @@ const RestaurantCard = (props) =>{
     return (
   <div className="max-w-xs rounded-lg hover:shadow-2xl p-2">
        <div className="h-72 w-full">
-          <img className="rounded-3xl h-full w-full object-cover" src= {CDN_URL+cloudinaryImageId} alt="rescard-logo" />
+          <img className="rounded-3xl h-full w-full object-cover" src= {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} alt="rescard-logo" />
        </div>
       <div className="py-4 mt-1">
            <h4 className="text-xl font-semibold  text-gray-900  px-2">{name}</h4>
@@ -15,7 +15,7 @@ const RestaurantCard = (props) =>{
            <div className="flex justify-between items-center ">
             <h4 className="bg-green-600 text-white rounded-lg m-2 p-2">{avgRating} &#9734;</h4>
             <div className="p-2">
-            <p className="leading-tight text-[rgb(0,0,0,0.7)]">₹ {resData.info.costForTwo / 10} for two</p>
+            <p className="leading-tight text-[rgb(0,0,0,0.7)]"> {resData.info.costForTwo}</p>
             <p>{resData.info.sla.slaString} min</p>
             </div>
             </div>

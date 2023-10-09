@@ -1,11 +1,10 @@
-import ItemList from "./ItemList";
+// import ItemList from "./ItemList";
+import ItemCart from "./ItemCart"
 import {IoIosArrowDown} from 'react-icons/io'
 
 // controlled compoenents
 const RestaurantMenuCard = ({data,showItems,setShowIndex}) =>{
 // when he has won state that's uncontrolled componenets
-
-
   const handleClick = () =>{
       //  setShowItems(!showItems)
     setShowIndex();
@@ -20,7 +19,7 @@ const RestaurantMenuCard = ({data,showItems,setShowIndex}) =>{
       <span><IoIosArrowDown/></span>
       </div>
       {/* Accordian Body */}
-     { showItems &&  <ItemList items={data.itemCards}/>}
+     { showItems &&  <ItemCart items={data.itemCards}/>}
     </div>
     
     </div>

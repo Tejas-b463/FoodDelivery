@@ -11,7 +11,7 @@ const CarouselTop = () =>{
     const slider = useRef(null)
     const {carouselId} = useParams()
     const carouselImg = useCarouselCard(carouselId)
-    const image = carouselImg?.success?.cards?.[0]?.gridWidget?.gridElements?.infoWithStyle?.info;
+    const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
     console.log(image);
 
     function SampleNextArrow(props) {
@@ -41,7 +41,7 @@ const CarouselTop = () =>{
         infinite: true,
         arrows:false,
         speed: 700,
-        slidesToShow: 3,
+        slidesToShow: 6,
         slidesToScroll: 2,
         responsive: [
           {
@@ -90,7 +90,7 @@ const CarouselTop = () =>{
               {
                 image?.map((pic)=>(
                  <div className="p-5" key={pic.id}>
-                 <img className="w-96 cursor-pointer" src={CDN_URL+pic.imageId} alt="" />
+                 <img className="w-56 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pic.imageId} alt="" />
                  </div>
                 ))
                }

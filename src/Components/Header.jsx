@@ -19,7 +19,7 @@ const Header = () =>{
 
     // Subscribing to the store using a selector
     const cartItems = useSelector((store)=>store.cart.items);
-    console.log(cartItems)
+    // console.log(cartItems)
 
     return(
     <nav className="flex justify-between items-center px-10 py-2 shadow-lg">
