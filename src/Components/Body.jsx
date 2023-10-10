@@ -6,6 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
 import {LuSearch} from "react-icons/lu"
+import {MdOutlineNetworkCheck} from "react-icons/md"
 import { SWIGGY_API } from "../utils/constant";
 
 
@@ -27,8 +28,8 @@ const Body = () =>{
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
 
@@ -36,7 +37,14 @@ const Body = () =>{
    
     const onlineStatus = useOnlineStatus();
 
-    if(onlineStatus === false) return <h1>Plase Check Your Internet Connection !!!</h1>
+    if(onlineStatus === false) return (
+      <div className="p-2">
+       <MdOutlineNetworkCheck/>
+     <h1>
+      Plase Check Your Internet Connection !!!
+      </h1>
+      </div>
+    )
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
       
@@ -63,7 +71,7 @@ const Body = () =>{
             }}><LuSearch/></button>
           </div>
           <div className="mt-5">
-           <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500 mx-2 hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" 
+           <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500  hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" 
            onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
@@ -96,8 +104,8 @@ const Body = () =>{
            
         </div>
         </div>
-        <div className="my-4 ">
-          <div className="flex flex-wrap item-center justify-center gap-8">
+        <div className="my-6 mx-16 ">
+          <div className="grid grid-cols-4 gap-14">
           {filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
