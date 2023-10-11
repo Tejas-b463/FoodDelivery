@@ -28,8 +28,8 @@ const Body = () =>{
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurats(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
   
 
@@ -50,14 +50,14 @@ const Body = () =>{
       
     <div className="m-10">
       <div className="">
-       <CarouselTop/>
+       {/* <CarouselTop/> */}
        <CarouselCard/>
       </div>
       <div className="">
         <h1 className="mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
         <div className="mx-24 gap-x-10">
           <div className="mt-4">
-            <input className="shadow-sm border-2 w-56 h-8" id="search" type="text" value={searchText} 
+            <input placeholder="Search for Food"  className="text-sm px-1  shadow-sm border-2 w-56 h-8" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} />
@@ -78,15 +78,16 @@ const Body = () =>{
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
-           }}> Ratings 4.0+ </button>
-            <button className=" opacity-50 cursor-not-allowed mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+           }}> Ratings 4.0+
+            </button>
+            <button className=" focus focus:bg-red-500 focus:text-white border focus:border-red-500  hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.avgRating > 4
+                (res) => res.info.sla.deliveryTime <= 25
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
-           }}> Fast Devlivery </button>
-            <button className="opacity-50 cursor-not-allowed disabled:opacity-75 mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
+           }}> Fast Delivery </button>
+            {/* <button className="opacity-50 cursor-not-allowed disabled:opacity-75 mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
@@ -99,7 +100,7 @@ const Body = () =>{
               );
               SetlistOfRestaustant(filteredList);
               setFilteredRestaurats(filteredList)
-           }}> Less than ₹ 300 </button>
+           }}> Less than ₹ 300 </button> */}
            </div>
            
         </div>

@@ -21,7 +21,7 @@ const RestaurantCard = (props) =>{
             <h4 className="bg-green-600 text-white rounded-lg m-2 p-2">{avgRating} &#9734;</h4>
             <div className="p-2">
             <p className="leading-tight text-[rgb(0,0,0,0.7)]"> {costForTwo}</p>
-            <p>{resData.info.sla.slaString} min</p>
+            <p>{resData.info.sla.deliveryTime} min</p>
             </div>
             </div>
       </div>

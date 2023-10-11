@@ -11,7 +11,7 @@ const CarouselTop = () =>{
     const slider = useRef(null)
     const {carouselId} = useParams()
     const carouselImg = useCarouselCard(carouselId)
-    const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
+    const image = carouselImg?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
     console.log(image);
 
     function SampleNextArrow(props) {
