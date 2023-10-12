@@ -14,7 +14,6 @@ const RestaurantMenu = () =>{
 
   const resMenu = useRetaurantMenu(resId)
 
-  const[showIndex, setShowIndex] = useState(0);
 
   if(resMenu === null) return <Shimmer/>
 
@@ -28,8 +27,7 @@ const RestaurantMenu = () =>{
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   )
   console.log(categories)
-
-
+  
   return (
     <div className="">
     <div className="my-8 flex items-center justify-center   gap-x-96 text-left">
@@ -52,9 +50,9 @@ const RestaurantMenu = () =>{
    {/* categories accordions */}
   {categories?.map((category,index)=>(
     // Controlled Components
-    <RestaurantMenuCard key={category.card.card.title} data={category?.card?.card}
-    showItems = {index === showIndex ? true : false}
-    setShowIndex={()=>setShowIndex(index)}
+    <RestaurantMenuCard
+     key={category.card.card.title}
+     data={category?.card?.card}
     />
   ))}
      </div>

@@ -11,6 +11,7 @@ import { SWIGGY_API } from "../utils/constant";
 
 
 
+
 const Body = () =>{
     const[listOfRestaustant,SetlistOfRestaustant] = useState([]);
    const[filteredRestaurants, setFilteredRestaurats] = useState([]);
@@ -28,15 +29,10 @@ const Body = () =>{
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurats(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
-  
-
-    
-   
     const onlineStatus = useOnlineStatus();
-
     if(onlineStatus === false) return (
       <div className="p-2">
        <MdOutlineNetworkCheck/>
@@ -47,10 +43,9 @@ const Body = () =>{
     )
 
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
-      
     <div className="m-10">
       <div className="">
-       {/* <CarouselTop/> */}
+       <CarouselTop/>
        <CarouselCard/>
       </div>
       <div className="">
@@ -60,7 +55,7 @@ const Body = () =>{
             <input placeholder="Search for Food"  className="text-sm px-1  shadow-sm border-2 w-56 h-8" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
-            }} />
+            }} /> 
             <button className="font-medium absolute p-2 left-[20.5rem]" onClick={()=>{
               // Filter the restaurant cards and update the UI
               // SearchText
@@ -68,39 +63,20 @@ const Body = () =>{
                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredRestaurats(searchList);
+              setSearchText('');
             }}><LuSearch/></button>
+          
           </div>
           <div className="mt-5">
-           <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500  hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" 
+          <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500  border-2 py-2 px-4 rounded-full  text-md font-medium" 
            onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
               );
-              SetlistOfRestaustant(filteredList);
-              setFilteredRestaurats(filteredList)
+              SetlistOfRestaustant(filteredList) 
+              setFilteredRestaurats(filteredList) 
            }}> Ratings 4.0+
-            </button>
-            <button className=" focus focus:bg-red-500 focus:text-white border focus:border-red-500  hover:shadow-lg border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
-              const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.sla.deliveryTime <= 25
-              );
-              SetlistOfRestaustant(filteredList);
-              setFilteredRestaurats(filteredList)
-           }}> Fast Delivery </button>
-            {/* <button className="opacity-50 cursor-not-allowed disabled:opacity-75 mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
-              const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.avgRating > 4
-              );
-              SetlistOfRestaustant(filteredList);
-              setFilteredRestaurats(filteredList)
-           }}> ₹ 300 - ₹ 600 </button>
-             <button className="opacity-50 cursor-not-allowed mx-2 border-2 p-2 rounded-lg shadow-zinc-950 text-md font-medium" onClick={()=>{
-              const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.feeDetails.totalFee / 10 < 300
-              );
-              SetlistOfRestaustant(filteredList);
-              setFilteredRestaurats(filteredList)
-           }}> Less than ₹ 300 </button> */}
+            </button> 
            </div>
            
         </div>

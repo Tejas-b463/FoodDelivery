@@ -16,7 +16,7 @@ const CarouselTop = () =>{
     const carouselImg = useCarouselTop(carouselId)
    
    
-    const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
+    const image = carouselImg?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
    
 
     function SampleNextArrow(props) {
