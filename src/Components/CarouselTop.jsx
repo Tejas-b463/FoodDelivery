@@ -46,7 +46,7 @@ const CarouselTop = () =>{
         infinite: true,
         arrows:false,
         speed: 700,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 2,
         responsive: [
           {
@@ -95,7 +95,7 @@ const CarouselTop = () =>{
               {
                 image?.map((pic)=>(
                  <div className="p-5" key={pic?.id}>
-                 <img className="w-96 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pic?.imageId
+                 <img className="w-96 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/"+pic?.imageId
 
 } alt="" />
                  </div>

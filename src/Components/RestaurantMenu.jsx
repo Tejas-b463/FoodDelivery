@@ -3,10 +3,7 @@ import Shimmer from "./Shimmer";
 import RestaurantMenuCard from "./RestaurantMenuCard"
 import { useParams } from "react-router-dom";
 import useRetaurantMenu from "../utils/useRestaurantMenu";
-import { useState } from "react";
 import {ImStarEmpty} from "react-icons/im"
-// import { MENU_IMG } from "../utils/constant";
-
 
 const RestaurantMenu = () =>{
 
@@ -30,15 +27,15 @@ const RestaurantMenu = () =>{
   
   return (
     <div className="">
-    <div className="my-8 flex items-center justify-center   gap-x-96 text-left">
+    <div className="my-8 flex items-center justify-center gap-x-96 text-left">
       <div className="flex">
         <div>
         <img className="w-20 mx-3 rounded-lg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+cloudinaryImageId} alt="" />
         </div>
         <div>
     <h1 className="font-bold text-2xl">{name}</h1>
-    <p className="my-1 overflow-hidden text-ellipsis whitespace-nowrap w-[120%] leading-tight text-[rgb(0,0,0,0.5)]">{cuisines.join(", ")}</p>
-    <p className="leading-tight text-[rgb(0,0,0,0.6)]">{areaName}, {city}</p>
+    <p className="my-1 overflow-hidden text-ellipsis whitespace-nowrap w-[120%]  text-[rgb(0,0,0,0.5)]">{cuisines.join(", ")}</p>
+    <p className=" text-[rgb(0,0,0,0.6)]">{areaName}, {city}</p>
     </div>
     </div>
     <div className="">
@@ -47,9 +44,7 @@ const RestaurantMenu = () =>{
     </div>
     </div>
     <div className="">
-   {/* categories accordions */}
-  {categories?.map((category,index)=>(
-    // Controlled Components
+  {categories?.map((category)=>(
     <RestaurantMenuCard
      key={category.card.card.title}
      data={category?.card?.card}

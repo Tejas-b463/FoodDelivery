@@ -23,7 +23,6 @@ const Cart = () =>{
             handleClearCart
         }>Clear Cart
         </button>
-      
         {cartItems.length === 0 && <h1
         className="">
         "Oops! Your cart is empty. Hungry? Start adding delicious items!" 🛒</h1>}

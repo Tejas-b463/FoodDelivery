@@ -8,14 +8,11 @@ import CarouselCard from "./CarouselCard"
 import {LuSearch} from "react-icons/lu"
 import {MdOutlineNetworkCheck} from "react-icons/md"
 import { SWIGGY_API } from "../utils/constant";
-import About from "./About"
-
-
 
 
 const Body = () =>{
     const[listOfRestaustant,SetlistOfRestaustant] = useState([]);
-   const[filteredRestaurants, setFilteredRestaurats] = useState([]);
+   const[filteredRestaurants, setFilteredRestaurats] = useState(false);
 
     const[searchText, setSearchText] = useState("");
 
@@ -30,7 +27,7 @@ const Body = () =>{
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
     setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
     const onlineStatus = useOnlineStatus();
@@ -90,13 +87,11 @@ const Body = () =>{
           }
           </div>
           <div className="text-center text-lg font-bold">
-          {filteredRestaurants.length === 0 && 
-              <div className="">
+          {filteredRestaurants?.length === 0 && 
                 <Link to="/about">
                 <h1 className="font-bold text-xl text-[rgba(0,0,0,0.6)]">Search all results for Restaurant</h1>
                 </Link>
-              </div>
-        }
+            }
           </div>
         </div>
        
