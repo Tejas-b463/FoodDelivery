@@ -8,6 +8,7 @@ import CarouselCard from "./CarouselCard"
 import {LuSearch} from "react-icons/lu"
 import {MdOutlineNetworkCheck} from "react-icons/md"
 import { SWIGGY_API } from "../utils/constant";
+import About from "./About"
 
 
 
@@ -41,7 +42,6 @@ const Body = () =>{
       </h1>
       </div>
     )
-
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
     <div className="m-10">
       <div className="">
@@ -65,7 +65,6 @@ const Body = () =>{
               setFilteredRestaurats(searchList);
               setSearchText('');
             }}><LuSearch/></button>
-          
           </div>
           <div className="mt-5">
           <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500  border-2 py-2 px-4 rounded-full  text-md font-medium" 
@@ -77,10 +76,10 @@ const Body = () =>{
               setFilteredRestaurats(filteredList) 
            }}> Ratings 4.0+
             </button> 
-           </div>
-           
+           </div> 
+         </div>
         </div>
-        </div>
+
         <div className="my-6 mx-16 ">
           <div className="grid grid-cols-4 gap-14">
           {filteredRestaurants?.map((restaurant) => (
@@ -90,10 +89,19 @@ const Body = () =>{
           ))
           }
           </div>
+          <div className="text-center text-lg font-bold">
+          {filteredRestaurants.length === 0 && 
+              <div className="">
+                <Link to="/about">
+                <h1 className="font-bold text-xl text-[rgba(0,0,0,0.6)]">Search all results for Restaurant</h1>
+                </Link>
+              </div>
+        }
+          </div>
         </div>
-      
+       
+        
     </div>
-  
     )
 }
 export default Body;

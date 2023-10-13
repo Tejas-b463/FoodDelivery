@@ -1,36 +1,27 @@
 import { useDispatch } from "react-redux";
 import { MENU_IMG } from "../utils/constant";
-import { addItem } from "../utils/cartSlice";
+import { removeItem } from "../utils/cartSlice";
 
 const ItemList = ({items}) =>{
         const dispatch = useDispatch();
 
-        const handleAddItem = (item)  =>{
+        const handleRemoveItem = (item)  =>{
           // Dispatch an action
-          dispatch(addItem(item))
+          dispatch(removeItem(item))
         }
        return(
+      
         
      <div>
-          {items.map(item=> <div key={item.card.info.id} className="p-2 m-2 text-left"> 
-       <div  className="flex justify-around items-center mb-8 ">  
-          <div className="py-2">
-                <h6 className="py-1">{item.card.info.name}</h6>
-                <span>₹{item.card.info.defaultPrice/100 || item.card.info.price/100}</span>
-                <p className=" text-[rgb(0,0,0,0.7)] py-1">{item.card.info.description}</p>
-             </div>
-          <div className="w-46">
-            <div className="absolute">
-               <button className="p-1  px-4 mx-4 my-24 rounded-lg bg-white text-red-500 font-medium shadow-lg"
-               onClick={() => handleAddItem(item)}
-               >Remove</button>
-            </div>
-            <div className="w-[118px] h-[96px] object-cover rounded-lg">
-            <img className="rounded-lg" src={MENU_IMG+item.card.info.imageId} alt="" />
-            </div>
-          </div>
-         </div>
-        </div> 
+          {items.map(item=> <div key={item.card.info.id} className=""> 
+            <img className="" src={MENU_IMG+item.card.info.imageId} alt="" />
+              <h2 className="">{item.card.info.name}</h2>
+              <p className="">₹{item.card.info.defaultPrice/100 || item.card.info.price/100}</p>
+                  <button className=" rounded-lg bg-white text-red-500 font-medium shadow-lg"
+               onClick={() => handleRemoveItem(item.card.info.id)}
+               >X</button>
+                </div>
+            
           )}
      </div>
         

@@ -16,6 +16,7 @@ const ItemList = ({items}) =>{
        <div  className="flex justify-between items-center mb-8 ">  
           <div className="py-2">
                 <h6 className="py-1">{item.card.info.name}</h6>
+                <p>{item.card.info.id}</p>
                 <span>₹{item.card.info.defaultPrice/100 || item.card.info.price/100}</span>
                 <p className=" text-[rgb(0,0,0,0.7)] py-1">{item.card.info.description}</p>
              </div>

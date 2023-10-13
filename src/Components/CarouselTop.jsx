@@ -46,7 +46,7 @@ const CarouselTop = () =>{
         infinite: true,
         arrows:false,
         speed: 700,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 2,
         responsive: [
           {
