@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header"
-import Body from "./Components/Body"
+import Body from "./Components/Body";
 import About from "./Components/About"
 import Contact from "./Components/Contact";
 import Error from "./Components/Error"
@@ -12,8 +12,6 @@ import {Provider} from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./Components/Cart"
 import Footer from "./Components/Footer"
-import CarouselTop from "./Components/CarouselTop";
-import CarouselCard from "./Components/CarouselCard"
 
 const About = lazy(() => import("./Components/About"));
 
@@ -21,6 +19,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { Provider } from "react-redux";
+import Body from "./Components/Body";
+import CarouselTop from "./Components/CarouselTop";
 
 
 
@@ -44,10 +44,8 @@ const appRouter = createBrowserRouter([
         children:[
           {
            path:"/",
-           element:<Body/>
+           element:<Body/>,
           },
-
-
             {
                 path:"/about",
                 element:(
