@@ -16,7 +16,6 @@ const Cart = () =>{
 
     return(
       <div className="">
-      <h1 className="">Cart</h1>
       <div className="">
         <button className=""
         onClick={
@@ -25,7 +24,8 @@ const Cart = () =>{
         </button>
         {cartItems.length === 0 && <h1
         className="">
-        "Oops! Your cart is empty. Hungry? Start adding delicious items!" 🛒</h1>}
+        "Oops! Your cart is empty. Hungry? Start adding delicious items!" 🛒</h1>
+        }
         </div>
         <ItemList items={cartItems}/>
       </div>

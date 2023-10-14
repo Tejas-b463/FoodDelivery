@@ -9,14 +9,15 @@ const ItemList = ({items}) =>{
           // Dispatch an action
           dispatch(addItem(item))
         }
+        
+        
        return(
         
      <div>
-          {items.map(item=> <div key={item.card.info.id} className="p-2 m-2 text-left"> 
+          {items.map(item=> <div key={item.card.info.id} className="p-2 m-2 text-left border-b-2 border-gray-200"> 
        <div  className="flex justify-between items-center mb-8 ">  
-          <div className="py-2">
+          <div className="py-2 ">
                 <h6 className="py-1">{item.card.info.name}</h6>
-                <p>{item.card.info.id}</p>
                 <span>₹{item.card.info.defaultPrice/100 || item.card.info.price/100}</span>
                 <p className=" text-[rgb(0,0,0,0.7)] py-1">{item.card.info.description}</p>
              </div>
@@ -26,13 +27,14 @@ const ItemList = ({items}) =>{
                onClick={() => handleAddItem(item)}
                >Add</button>
             </div>
-            <div className="w-[118px] h-[96px] object-cover rounded-lg">
-            <img className="rounded-lg" src={MENU_IMG+item.card.info.imageId} alt="" />
+            <div className="w-[118px] h-[96px] object-cover rounded-lg border-b-2 ">
+            <img className="" src={MENU_IMG+item.card.info.imageId} alt="" />
             </div>
           </div>
          </div>
         </div> 
           )}
+         
      </div>
         
        )
