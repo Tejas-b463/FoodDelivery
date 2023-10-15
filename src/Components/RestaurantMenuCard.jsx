@@ -14,7 +14,7 @@ const RestaurantMenuCard = ({data}) =>{
   return(
     <div>
     {/* Headers */}
-    <div className="w-6/12 p-4 mx-auto my-8">
+    <div className="w-6/12 p-4 mx-auto my-2">
       <div className="flex justify-between cursor-pointer"
        onClick={handleClick}>
       <span className="font-bold text-xl">{data.title} ({data.itemCards.length})</span>

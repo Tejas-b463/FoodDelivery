@@ -1,5 +1,4 @@
 import { useRef } from "react"
-import { CDN_URL } from "../utils/constant"
 import Slider from "react-slick";
 import { useParams } from "react-router-dom";
 import ShimmerCarousel from "./ShimmerCarousel";

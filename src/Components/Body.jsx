@@ -8,6 +8,7 @@ import {MdOutlineNetworkCheck} from "react-icons/md"
 import { SWIGGY_API } from "../utils/constant";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
+import CarouselRestaurant from "./CarouselRestaurant"
 
 
 const Body = () =>{
@@ -27,8 +28,8 @@ const Body = () =>{
     const jsonData = await data.json();
     console.log(jsonData)
 
-    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
-    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
+    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return (
@@ -44,16 +45,17 @@ const Body = () =>{
       <div className="">
         <CarouselTop/>
         <CarouselCard/>
+        <CarouselRestaurant/>
       </div>
       <div className="">
-        <h1 className="mx-24 font-black text-3xl">Restaurants with online food delivery </h1>
-        <div className="mx-24 gap-x-10">
+        <h1 className="mx-20 font-black text-3xl">Restaurants with online food delivery </h1>
+        <div className="flex items-center mx-20 gap-x-10">
           <div className="mt-4">
-            <input placeholder="Search for Food"  className="text-sm px-1  shadow-sm border-2 w-56 h-8" id="search" type="text" value={searchText} 
+            <input placeholder="Search for Food"  className="text-sm px-2  shadow-sm border-2 w-60 h-10 rounded-full" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} /> 
-            <button className="font-medium absolute p-2 left-[20.5rem]" onClick={()=>{
+            <button className="font-medium absolute  p-2 my-1 left-0 right-0 ml-80" onClick={()=>{
               // Filter the restaurant cards and update the UI
               // SearchText
               const searchList = listOfRestaustant?.filter((res)=>
