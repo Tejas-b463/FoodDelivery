@@ -1,4 +1,4 @@
-import Body from "./Body"
+
 
 const About = () =>{
     return(
