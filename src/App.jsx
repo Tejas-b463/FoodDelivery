@@ -20,7 +20,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Provider } from "react-redux";
 import Body from "./Components/Body";
-import CarouselTop from "./Components/CarouselTop";
+
 
 
 

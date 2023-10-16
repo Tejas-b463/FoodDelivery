@@ -2,15 +2,17 @@
 import { MENU_IMG } from "../utils/constant";
 
 const ItemList = ({items}) =>{
+  
   const totalItem =  items.length > 0 ? items.map((bill)=>
   (bill.card.info.price > 0 ? bill.card.info.price/100 : bill.card.info.defaultPrice/100))
   .reduce((sum,a)=> sum + a,0):0;
-
   const platFormFee = 5;
- 
   // const Discount = (totalItem)/100;
-
   const toPay = (totalItem  + platFormFee);
+
+
+
+
        return(
      <div className="flex  justify-center my-12">
       <div className="mx-12">
@@ -28,6 +30,8 @@ const ItemList = ({items}) =>{
                 </div>
 )}
           </div>
+        
+          
          <div className="mx-12 py-4  h-96 bg-white shadow px-20 my-12 ">
             <h1 className="text-lg">Bill Details</h1>
           {/* Item Total */}

@@ -14,9 +14,8 @@ import CarouselRestaurant from "./CarouselRestaurant"
 const Body = () =>{
     const[listOfRestaustant,SetlistOfRestaustant] = useState([]);
     const[filteredRestaurants, setFilteredRestaurats] = useState("");
-  
-
     const[searchText, setSearchText] = useState("");
+
    useEffect(()=>{
     fetchData();
    },[])
@@ -27,10 +26,11 @@ const Body = () =>{
     );
     const jsonData = await data.json();
     console.log(jsonData)
-
     SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
     setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
+
+
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return (
       <div className="p-2">
@@ -43,7 +43,7 @@ const Body = () =>{
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
     <div className="m-10">
       <div className="">
-        <CarouselTop/>
+       <CarouselTop/>
         <CarouselCard/>
         <CarouselRestaurant/>
       </div>
