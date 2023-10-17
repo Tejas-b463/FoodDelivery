@@ -10,11 +10,9 @@ import useCarouselTop from "../utils/useCarouselTop"
 const CarouselTop = () =>{
     const slider = useRef(null)
    
-
     const carouselId = useParams();
 
     const carouselImg = useCarouselTop(carouselId)
-   
    
     const image = carouselImg?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
    

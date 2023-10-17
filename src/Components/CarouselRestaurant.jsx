@@ -7,7 +7,8 @@ import {PiStarThin} from "react-icons/pi"
 
 const CarouselRestaurant = () => {
     const[carouselRestaurant, setCarouselRestaurant] = useState([]);
-
+      
+  
     useEffect(()=>{
        resData();
     },[])

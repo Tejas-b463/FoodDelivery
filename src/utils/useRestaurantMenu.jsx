@@ -2,12 +2,8 @@
 import { useEffect, useState } from "react";
 // import { MENU_API } from "./constant";
 
-
-
 const useRetaurantMenu = (resId) => {
-
     const[resMenu, setResMenu] = useState(null);
-
     useEffect(()=>{
         fetchMenu();
     },[])

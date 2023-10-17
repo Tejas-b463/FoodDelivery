@@ -66,7 +66,7 @@ const Body = () =>{
             }}><LuSearch/></button>
           </div>
           <div className="mt-5">
-          <button className="focus focus:bg-red-500 focus:text-white border focus:border-red-500  border-2 py-2 px-4 rounded-full  text-md font-medium" 
+          <button className="focus focus:bg-red-500 focus:text-white focus:border-red-500  border-2 py-2 px-4 rounded-full  text-md font-medium" 
            onClick={()=>{
               const filteredList = listOfRestaustant?.filter(
                 (res) => res.info.avgRating > 4
@@ -99,6 +99,8 @@ const Body = () =>{
                 </div>
              
             }
+             <ul>
+      </ul>
           </div>
         </div> 
     </div>
