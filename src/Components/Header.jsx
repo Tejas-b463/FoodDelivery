@@ -43,7 +43,6 @@ const Header = () =>{
               <FcGoogle className="text-2xl"/>
                </Link>
                </div>
-           
                <div className="px-4 font-bold text-xl">
                 <Link className="flex" to="/cart">
                     <MdFastfood className=" text-3xl my-2 text-[rgba(0,0,0,0.7)]"/>
