@@ -9,11 +9,12 @@ import { SWIGGY_API } from "../utils/constant";
 import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
 import CarouselRestaurant from "./CarouselRestaurant"
+import SearchAllRestaurant from "./SearchAllRestaurant"
 
 
 const Body = () =>{
     const[listOfRestaustant,SetlistOfRestaustant] = useState([]);
-    const[filteredRestaurants, setFilteredRestaurats] = useState("");
+    const[filteredRestaurants, setFilteredRestaurats] = useState([]);
     const[searchText, setSearchText] = useState("");
 
    useEffect(()=>{
@@ -26,8 +27,8 @@ const Body = () =>{
     );
     const jsonData = await data.json();
     console.log(jsonData)
-    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
-    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
+    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
 
 
@@ -65,23 +66,23 @@ const Body = () =>{
               setSearchText('');
             }}><LuSearch/></button>
           </div>
-          <div className="mt-5">
-          <button className="focus focus:bg-red-500 focus:text-white focus:border-red-500  border-2 py-2 px-4 rounded-full  text-md font-medium" 
-           onClick={()=>{
-              const filteredList = listOfRestaustant?.filter(
-                (res) => res.info.avgRating > 4
-              );
-              SetlistOfRestaustant(filteredList) 
-              setFilteredRestaurats(filteredList) 
-           }}> Ratings 4.0+
-</button>
-           </div> 
+          <div>
+            <button 
+            onClick={()=>{
+              const filteredList = listOfRestaustant.filter((res)=>
+                  res.info.avgRating > 4
+              )
+              SetlistOfRestaustant(filteredList);
+              filteredRestaurants(filteredList);
+             }}
+            >4.0+ Rating</button>
+          </div>
          </div>
         </div>
 
         <div className="my-6 mx-16 ">
           <div className="grid grid-cols-4 gap-14">
-            {   filteredRestaurants?.map((restaurant) => (
+            {  filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
             </Link>
@@ -90,14 +91,7 @@ const Body = () =>{
           </div>
           <div className= "flex items-center justify-center  text-lg font-bold">
           {filteredRestaurants?.length === 0 && 
-                  <div className="">
-                  <img className="w-28 ml-36" src="https://www.grubhub.com/img-hashed/utensils-2f0312a14f568f8c9bc190458ea62548.png" alt="" />
-                  <h1 className="py-2">We didn't find any results Remove filters or start over</h1>
-                  <Link to="/about">
-                <h1 className="ml-20 font-bold text-xl text-[rgba(0,0,0,0.6)]">Search all results for Restaurant</h1>
-                </Link>
-                </div>
-             
+                <SearchAllRestaurant/>
             }
              <ul>
       </ul>

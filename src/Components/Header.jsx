@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 import {MdFastfood} from "react-icons/md"
 import {FcGoogle} from "react-icons/fc"
 
-
-
 const Header = () =>{
    
     const cartItems = useSelector((store)=>store.cart.items);
@@ -21,9 +19,8 @@ const Header = () =>{
           </div>
             <div className="flex justify-between items-center">
                <ul className="flex gap-x-10">
-                   <li className=" text-lg">
-                   
-                    <Link className="flex items-center" to="/">Home</Link>
+                   <li className="  ">
+                    <Link className=" text-lg flex items-center" to="/">Home</Link>
                     </li>
                    <li className="text-lg">
                     <Link className="flex items-center gap-1 " to="/about">

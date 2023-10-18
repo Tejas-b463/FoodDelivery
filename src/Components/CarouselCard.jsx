@@ -11,7 +11,7 @@ const CarouselTop = () =>{
     const {carouselId} = useParams()
     const carouselImg = useCarouselCard(carouselId)
     const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
-    console.log(image);
+    // console.log(image);
 
     function SampleNextArrow(props) {
       const { className, style, onClick } = props;

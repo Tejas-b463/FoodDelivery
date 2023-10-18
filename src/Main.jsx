@@ -1,12 +1,8 @@
 import App from "./App"
 
 
-const Main = () => {
-  
+const Main = () => {  
+         <App/>
+    }
 
-<App/>
-
-
-
-}
 export default Main;

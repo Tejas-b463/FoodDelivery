@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { MENU_IMG } from "../utils/constant";
 import { addItem } from "../utils/cartSlice";
 
+
 const ItemList = ({items}) =>{
         const dispatch = useDispatch();
 
@@ -9,8 +10,7 @@ const ItemList = ({items}) =>{
           // Dispatch an action
           dispatch(addItem(item))
         }
-        
-        
+
        return(
         
      <div>

@@ -1,8 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button'
-import {RiLogoutCircleRLine} from 'react-icons/ri'
-import {getAuth,signInWithPopup} from "firebase/auth"
+import {signInWithPopup} from "firebase/auth"
 import {auth,provider} from "../utils/firebase"
 import { useState, useEffect } from "react";
 
@@ -46,11 +45,13 @@ const SignIn = () => {
     return (
       <div>
         {user ? (
-          <div className="text-center mt-10 mb-[4rem] p-4">
-            <h1 className="text-2xl font-bold ml-4 leading-loose">Welcome, {user.displayName}!</h1>
-           
-            <button className="flex justify-center items-center" onClick={signOut}><RiLogoutCircleRLine/>Sign Out</button>
-          
+          <div className="mt-10 mb-[4rem] p-4">
+            <h1 className="text-center text-2xl font-bold ml-4 leading-loose">Welcome, {user.displayName}</h1>
+            <p className="text-center text-gray-500  ml-4 leading-loose">{user.email}</p>
+            <div className="flex justify-center my-4">
+            <button className="text-lg border border-red-400 px-10 py-1 font-bold text-red-500 hover:bg-red-500 hover:text-white" onClick={signOut}> Sign Out
+            </button>
+            </div>
           </div>
         ) : (
             <div className="text-center mt-10 mb-[4rem] p-4">
