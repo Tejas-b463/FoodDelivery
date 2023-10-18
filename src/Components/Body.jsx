@@ -80,7 +80,7 @@ const Body = () =>{
          </div>
         </div>
 
-        <div className="my-6 mx-16 ">
+        <div className="my-10 sm:mx-14 md:mx-24 lg:mx-16  ">
           <div className="grid grid-cols-4 gap-14">
             {  filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>

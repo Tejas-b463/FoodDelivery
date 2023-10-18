@@ -4,9 +4,9 @@ const RestaurantCard = (props) =>{
 
     const {cloudinaryImageId,name,cuisines,avgRating,costForTwo} =resData?.info;
     return (
-  <div className="max-w-xs rounded-lg hover:shadow-2xl p-2">
-       <div className="h-72 w-full relative">
-          <img className="rounded-lg h-full w-full object-cover" src= {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} alt="rescard-logo" />
+  <div className="w-[17rem] rounded-lg hover:shadow-2xl p-2">
+       <div className="relative">
+          <img className="h-48 w-full rounded-lg object-cover" src= {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} alt="rescard-logo" />
           <span className="absolute rounded-lg bg-gradient-to-t from-black bottom-0 p-3 w-full font-black text-stone-50 text-xl ">{resData?.info?.aggregatedDiscountInfoV3?.header} {resData?.info?.aggregatedDiscountInfoV3?.subHeader }</span>
        </div>
       <div className="py-4 ">
