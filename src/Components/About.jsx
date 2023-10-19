@@ -6,14 +6,14 @@ import { filterData } from './infinitescroll/helper';
 import Shimmer from '../Components/Shimmer';
 import { Link } from 'react-router-dom';
 import RestaurantCard from './infinitescroll/RestaurantCard';
-import ButtonList from "./infinitescroll/ButtonList"
+
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [Loading, setLoading] = useState(false);
   const [page, setPage] = useState(10)
-  const { allRestaurants, filteredRestaurants, setFilteredRestaurants, setAllRestaurants } = useRestaurantData();
-  // console.log(allRestaurants);
+  const { listOfRestaurant, filteredRestaurants, setFilteredRestaurants, setlistOfRestaurant } = useRestaurantData();
+  // console.log(listOfRestaurant);
 
   async function getRestaurantMore() {
     setLoading(true);
@@ -21,39 +21,41 @@ const Body = () => {
       const response = await fetch(
         'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/update',
         {
-          method: 'POST', // Use POST for fetching more restaurants
+          method: 'POST', 
           headers: {
             'Content-Type': 'application/json',
-            // Add any additional headers here
           },
           body: JSON.stringify({
-            lat: 12.9715987,
-            lng: 77.5945627,
-            nextOffset: 'COVCELQ4KID4ruup+9+KczCnEzgD', // Use the correct nextOffset value
+            lat: 19.0759837,
+            lng: 72.8776559,
+            nextOffset: 'COVCELQ4KIDg08PFoqi4KjCnEzgC', // Use the correct nextOffset value
             // Other payload parameters if needed
             seoParams: {
               apiName: "FoodHomePage",
-              pageType: "FOOD_HOMEPAGE",
-              seoUrl: "https://www.swiggy.com/",
+              pageType: "FOOD_HOME_PAGE",
+              seoUrl: "www.swiggy.com",
             },
             widgetOffset: {
-              // Include your widgetOffset values here
-              NewListingView_Topical_Fullbleed: '',
-              NewListingView_category_bar_chicletranking_TwoRows: '',
-              NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
-              collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: String(page),
+              "NewListingView_Topical_Fullbleed": "",
+              "NewListingView_Topical_Version2": "",
+              "NewListingView_category_bar_chicletranking_TwoRows": "",
+              "NewListingView_category_bar_chicletranking_TwoRows_Rendition": "",
+              "Restaurant_Group_WebView_PB_Theme": "",
+              "Restaurant_Group_WebView_SEO_PB_Theme": "",
+              "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo": String(page),
+              "inlineFacetFilter": "",
+              "restaurantCountWidget": ""
             },
           }),
         }
       );
       const data = await response.json();
-      //    console.log(data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants);
-      if (allRestaurants) {
-
+      if (listOfRestaurant) {
         let newRestaurants = data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants;
+        console.log(newRestaurants);
 
         setFilteredRestaurants((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
-        setAllRestaurants((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
+        setlistOfRestaurant((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
       }
     } catch (error) {
       console.error('Error fetching restaurants:', error);
@@ -63,7 +65,7 @@ const Body = () => {
   }
 
   useEffect(() => {
-         if (page > 10) {
+         if (page > 15) {
         getRestaurantMore();
       }
   }, [page]);
@@ -86,19 +88,45 @@ const Body = () => {
   }, []);
 
 
-    return allRestaurants.length === 0 ? <Shimmer/> :(
+    return listOfRestaurant.length === 0 ? <Shimmer/> :(
 
       <>
         <div className='my-10 sm:mx-14 md:mx-24 lg:mx-44 '>
-          <h1 className='mx-3 my-4 font-black text-3xl '>Restaurants With Great Offers</h1>
-          <div>
-            {/* <ButtonList /> */}
+          <h1 className='mx-3 my-6 font-black text-3xl '>Restaurants With Great Offers</h1>
+          <div className='mb-6 '>
+          <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+              const filterList = listOfRestaurant.filter((res)=>
+                 res.info.avgRating > 4
+              );
+              setlistOfRestaurant(filterList);
+              setFilteredRestaurants(filterList);
+            }
+            }>4.0+ Rating</button>
+            <button className="mx-2 font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+              const filterList = listOfRestaurant.filter((res)=>
+                 res.info.veg == true
+              );
+              setlistOfRestaurant(filterList);
+              setFilteredRestaurants(filterList);
+            }
+            }>Pure Veg</button>
+
+<button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+              const filterList = listOfRestaurant.filter((res)=>
+                 res.info.sla.deliveryTime < 25
+              );
+              setlistOfRestaurant(filterList);
+              setFilteredRestaurants(filterList);
+            }
+            }>Fast Delivery</button>
+           
           </div>
          
           <div className="grid grid-cols-4 gap-14" data-testid='res-list'>
             {/* You have to write logic for NO restraunt fount here */}
             {filteredRestaurants && filteredRestaurants.map((restaurant) => {
               return (
+                <>
                 <Link
                   to={"/restaurant/" + restaurant.info.id}
                   key={restaurant.info.id}
@@ -106,6 +134,7 @@ const Body = () => {
                 >
                   <RestaurantCard {...restaurant.info} />
                 </Link>
+                </>
               );
             })}
           </div>

@@ -27,8 +27,8 @@ const Body = () =>{
     );
     const jsonData = await data.json();
     console.log(jsonData)
-    SetlistOfRestaustant(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
-    setFilteredRestaurats(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    SetlistOfRestaustant(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
+    setFilteredRestaurats(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
    };
 
 
@@ -50,34 +50,55 @@ const Body = () =>{
       </div>
       <div className="">
         <h1 className="mx-20 font-black text-3xl">Restaurants with online food delivery </h1>
-        <div className="flex items-center mx-20 gap-x-10">
-          <div className="mt-4">
+        <div className="flex items-center mx-20 gap-x-10 mt-4">
+          {/* Search */}
+          {/* <div className="">
             <input placeholder="Search for Food"  className="text-sm px-2  shadow-sm border-2 w-60 h-10 rounded-full" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
             }} /> 
             <button className="font-medium absolute  p-2 my-1 left-0 right-0 ml-80" onClick={()=>{
-              // Filter the restaurant cards and update the UI
-              // SearchText
               const searchList = listOfRestaustant?.filter((res)=>
                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredRestaurats(searchList);
               setSearchText('');
             }}><LuSearch/></button>
-          </div>
-          <div>
-            <button 
-            onClick={()=>{
-              const filteredList = listOfRestaustant.filter((res)=>
-                  res.info.avgRating > 4
-              )
-              SetlistOfRestaustant(filteredList);
-              filteredRestaurants(filteredList);
-             }}
-            >4.0+ Rating</button>
-          </div>
+          </div> */}
+          {/* Rating 4.0+ */}
+         <div>
+            <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+              const filterList = listOfRestaustant.filter((res)=>
+                 res.info.avgRating > 4
+              );
+              SetlistOfRestaustant(filterList);
+              setFilteredRestaurats(filterList);
+            }
+            }>4.0+ Rating</button>
+            </div>
+            {/* Fast Delivery */}
+<div>
+<button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+              const filterList = listOfRestaustant.filter((res)=>
+                 res.info.sla.deliveryTime < 25
+              );
+              SetlistOfRestaustant(filterList);
+              setFilteredRestaurats(filterList);
+            }
+            }>Fast Delivery</button>
+           </div>
+           {/* Veg */}
+           <div className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700">
+            <button onClick={()=>{
+             const filterList = listOfRestaustant.filter((res)=>
+             res.info.veg == true
+          );
+          SetlistOfRestaustant(filterList);
+          setFilteredRestaurats(filterList);
+            }}>Pure Veg</button>
+           </div>
          </div>
+         
         </div>
 
         <div className="my-10 sm:mx-14 md:mx-24 lg:mx-16  ">
