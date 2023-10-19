@@ -5,7 +5,7 @@ import useRestaurantData from './infinitescroll/useRestaurantData';
 import { filterData } from './infinitescroll/helper';
 import Shimmer from '../Components/Shimmer';
 import { Link } from 'react-router-dom';
-import RestaurantCard from './infinitescroll/RestaurantCard';
+import RestaurantCard from '../Components/RestaurantCard';
 
 
 const Body = () => {
@@ -124,19 +124,12 @@ const Body = () => {
          
           <div className="grid grid-cols-4 gap-14" data-testid='res-list'>
             {/* You have to write logic for NO restraunt fount here */}
-            {filteredRestaurants && filteredRestaurants.map((restaurant) => {
-              return (
-                <>
-                <Link
-                  to={"/restaurant/" + restaurant.info.id}
-                  key={restaurant.info.id}
-                  className='pr-4'
-                >
-                  <RestaurantCard {...restaurant.info} />
-                </Link>
-                </>
-              );
-            })}
+            {  filteredRestaurants?.map((restaurant) => (
+         <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
+            <RestaurantCard resData={ restaurant}/>
+            
+            </Link>
+            ))}
           </div>
           </div>
   {Loading && <Shimmer/>}

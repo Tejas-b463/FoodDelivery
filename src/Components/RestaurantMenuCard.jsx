@@ -9,7 +9,6 @@ const RestaurantMenuCard = ({data}) =>{
   const handleClick = () => {
     // setShowItems(!showItems)
     setShowItems(!showItems)
-   
   }
   return(
     <div>
