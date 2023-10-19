@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import {MdFastfood} from "react-icons/md"
 import {FcGoogle} from "react-icons/fc"
 
+
 const Header = () =>{
    
     const cartItems = useSelector((store)=>store.cart.items);

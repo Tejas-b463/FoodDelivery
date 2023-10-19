@@ -10,6 +10,7 @@ import CarouselTop from "./CarouselTop";
 import CarouselCard from "./CarouselCard"
 import CarouselRestaurant from "./CarouselRestaurant"
 import SearchAllRestaurant from "./SearchAllRestaurant"
+import ShowButton from "./ShowButton";
 
 
 const Body = () =>{
@@ -44,9 +45,9 @@ const Body = () =>{
     return  listOfRestaustant?.length === 0 ?(<Shimmer/>):(
     <div className="m-10">
       <div className="">
-       <CarouselTop/>
-        <CarouselCard/>
-        <CarouselRestaurant/>
+       <CarouselTop/> 
+        <CarouselCard/> 
+        <CarouselRestaurant/> 
       </div>
       <div className="">
         <h1 className="mx-20 font-black text-3xl">Restaurants with online food delivery </h1>
@@ -106,10 +107,11 @@ const Body = () =>{
             {  filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
-            
             </Link>
+            
           )) 
           }
+            <ShowButton/>
           </div>
           <div className= "flex items-center justify-center  text-lg font-bold">
           {filteredRestaurants?.length === 0 && 
