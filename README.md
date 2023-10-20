@@ -1,7 +1,9 @@
 # InstantEats 🍔🍕
 
-InstantEats is an online food ordering and delivery application built with React. It provides a seamless experience for users to order their favorite dishes from a variety of restaurants. The app includes the following features to enhance user satisfaction:
+InstantEats is an online food ordering and delivery application built with React. It provides a seamless experience for users to add their favorite dishes from a variety of restaurants. The app includes the following features to enhance user satisfaction:
+
   <img src="./Readme.png" width="750">
+  
 ## Features
 
 - **User Authentication :** 🔐 Allow users to sign up, log in, and manage their profiles.
