@@ -32,6 +32,7 @@ const App = () =>{
      </Provider>
     )
 }
+export default App;
 
 const appRouter = createBrowserRouter([
     {
