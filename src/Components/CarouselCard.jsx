@@ -81,8 +81,8 @@ const CarouselTop = () =>{
            <h1 className="font-black text-3xl">Best offers for you</h1>
           </div>
           <div className="">
-           <button className="text-lg font-large px-1.5 text-4xl bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
-           <button className="text-lg font-large px-1.5 text-4xl bg-gray-200 rounded-full mx-1 px-4 py-1" onClick={()=> slider.current.slickNext()}> &#x203A; </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1" onClick={()=> slider.current.slickNext()}> &#x203A; </button>
            </div>
           </div>
            <Slider ref={slider} {...settings}>

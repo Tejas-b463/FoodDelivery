@@ -53,7 +53,7 @@ const Body = () =>{
         <h1 className="mx-20 font-black text-3xl">Restaurants with online food delivery </h1>
         <div className="flex items-center mx-20 gap-x-10 mt-4">
           {/* Search */}
-          {/* <div className="">
+          <div className="">
             <input placeholder="Search for Food"  className="text-sm px-2  shadow-sm border-2 w-60 h-10 rounded-full" id="search" type="text" value={searchText} 
             onChange={(e)=>{
               setSearchText(e.target.value);
@@ -65,8 +65,8 @@ const Body = () =>{
               setFilteredRestaurats(searchList);
               setSearchText('');
             }}><LuSearch/></button>
-          </div> */}
-          {/* Rating 4.0+ */}
+          </div> 
+           {/* Rating 4.0+ */}
          <div>
             <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
               const filterList = listOfRestaustant.filter((res)=>
@@ -78,8 +78,8 @@ const Body = () =>{
             }>4.0+ Rating</button>
             </div>
             {/* Fast Delivery */}
-<div>
-<button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
+            <div>
+            <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
               const filterList = listOfRestaustant.filter((res)=>
                  res.info.sla.deliveryTime < 25
               );
@@ -99,22 +99,25 @@ const Body = () =>{
             }}>Pure Veg</button>
            </div>
          </div>
-         
         </div>
-
         <div className="my-10 sm:mx-14 md:mx-24 lg:mx-16  ">
           <div className="grid grid-cols-4 gap-14">
             {  filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
             </Link>
-            
           )) 
           }
-            <ShowButton/>
+         {/* Show More Restaurant */}
+         <div>
+          {
+            filteredRestaurants.length !== 0 &&  <ShowButton/>
+          }
+          </div>
           </div>
           <div className= "flex items-center justify-center  text-lg font-bold">
           {filteredRestaurants?.length === 0 && 
+          
                 <SearchAllRestaurant/>
             }
              <ul>

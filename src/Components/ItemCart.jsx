@@ -1,18 +1,25 @@
 import { useDispatch } from "react-redux";
 import { MENU_IMG } from "../utils/constant";
 import { addItem } from "../utils/cartSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const ItemList = ({items}) =>{
-        const dispatch = useDispatch();
 
+
+
+        const dispatch = useDispatch();
         const handleAddItem = (item)  =>{
+          // toast
+          toast.success('Item Added', {
+            icon:'🍕',
+            position: "top-center",
+          })
           // Dispatch an action
           dispatch(addItem(item))
         }
 
        return(
-        
      <div>
           {items.map(item=> <div key={item.card.info.id} className="p-2 m-2 text-left border-b-2 border-gray-200"> 
        <div  className="flex justify-between items-center mb-8 ">  
@@ -34,9 +41,8 @@ const ItemList = ({items}) =>{
          </div>
         </div> 
           )}
-         
-     </div>
-        
+          <Toaster/>
+     </div> 
        )
 }
 export default ItemList;

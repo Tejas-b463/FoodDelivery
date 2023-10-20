@@ -1,15 +1,11 @@
-
-
 import React, { useEffect, useState } from 'react'
 import useRestaurantData from './infinitescroll/useRestaurantData';
-import { filterData } from './infinitescroll/helper';
 import Shimmer from '../Components/Shimmer';
 import { Link } from 'react-router-dom';
 import RestaurantCard from '../Components/RestaurantCard';
 
 
 const Body = () => {
-  const [searchText, setSearchText] = useState("");
   const [Loading, setLoading] = useState(false);
   const [page, setPage] = useState(10)
   const { listOfRestaurant, filteredRestaurants, setFilteredRestaurants, setlistOfRestaurant } = useRestaurantData();
@@ -28,7 +24,8 @@ const Body = () => {
           body: JSON.stringify({
             lat: 19.0759837,
             lng: 72.8776559,
-            nextOffset: 'COVCELQ4KIDg08PFoqi4KjCnEzgC', // Use the correct nextOffset value
+            // Use the correct nextOffset value
+            nextOffset: 'COVCELQ4KIDg08PFoqi4KjCnEzgC', 
             // Other payload parameters if needed
             seoParams: {
               apiName: "FoodHomePage",
@@ -52,7 +49,7 @@ const Body = () => {
       const data = await response.json();
       if (listOfRestaurant) {
         let newRestaurants = data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants;
-        console.log(newRestaurants);
+        // console.log(newRestaurants);
 
         setFilteredRestaurants((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
         setlistOfRestaurant((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
@@ -123,11 +120,9 @@ const Body = () => {
           </div>
          
           <div className="grid grid-cols-4 gap-14" data-testid='res-list'>
-            {/* You have to write logic for NO restraunt fount here */}
             {  filteredRestaurants?.map((restaurant) => (
          <Link key={restaurant.info.id}  to={"/restaurants/"+restaurant.info.id}>
             <RestaurantCard resData={ restaurant}/>
-            
             </Link>
             ))}
           </div>

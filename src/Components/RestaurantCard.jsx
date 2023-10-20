@@ -21,7 +21,6 @@ const RestaurantCard = (props) =>{
             </div>
       </div>
   </div>
-  
     )
 }
 export default RestaurantCard;

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { SWIGGY_API } from "./constant";
 
-
 const useCarouselCard = (carouselId) =>{
          const[carouselImg, setCarouselImg] = useState(null)
          useEffect(()=>{

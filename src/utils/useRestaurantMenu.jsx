@@ -15,6 +15,5 @@ const useRetaurantMenu = (resId) => {
       setResMenu(json.data);
     }
     return resMenu;
-
 }
 export default useRetaurantMenu;

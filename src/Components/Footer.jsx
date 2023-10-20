@@ -1,11 +1,11 @@
 import React from 'react'
-
 import{
     FaLocationArrow,
     FaMobileAlt,
     FaEnvelope
 } from "react-icons/fa"
 const Footer = () => {
+    
   return (
     <>
 <div className='w-[100%] bg-neutral-50'>
@@ -67,5 +67,4 @@ const Footer = () => {
 </>
   )
 }
-
 export default Footer

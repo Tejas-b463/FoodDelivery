@@ -38,8 +38,6 @@ return (
      <Link>{res.hyperLink}</Link> 
       <p >{res.description}</p></div>}
     </div>
-
-
    )}
   </div>
 )

@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 import useCarouselTop from "../utils/useCarouselTop"
 
 
-
-
 const CarouselTop = () =>{
     const slider = useRef(null)
    
@@ -85,17 +83,15 @@ const CarouselTop = () =>{
            <h1 className="font-black text-3xl">What's on your mind?</h1>
           </div>
           <div className="">
-           <button className="text-lg font-large px-1.5 text-4xl bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
-           <button className="text-lg font-large px-1.5 text-4xl bg-gray-200 rounded-full mx-1 px-4 py-1" onClick={()=> slider.current.slickNext()}> &#x203A; </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1" onClick={()=> slider.current.slickNext()}> &#x203A; </button>
            </div>
           </div>
            <Slider ref={slider} {...settings}>
               {
                 image?.map((pic)=>(
                  <div className="p-5" key={pic?.id}>
-                 <img className="w-96 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/"+pic?.imageId
-
-} alt="" />
+                 <img className="w-96 cursor-pointer" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/"+pic?.imageId} alt="" />
                  </div>
                 ))
                }

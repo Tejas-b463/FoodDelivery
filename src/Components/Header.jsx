@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 import {MdFastfood} from "react-icons/md"
 import {FcGoogle} from "react-icons/fc"
 
-
 const Header = () =>{
-   
     const cartItems = useSelector((store)=>store.cart.items);
     return(
     <nav className="flex justify-between items-center px-10 py-6 shadow-lg">
@@ -47,8 +45,7 @@ const Header = () =>{
                     <p className="text-sm bg-[#ef4444] text-white px-2  rounded-full h-6">{cartItems.length}</p>
                 </Link>
                </div>
-            </div>
-               
+            </div>     
      </nav>
     )
 }

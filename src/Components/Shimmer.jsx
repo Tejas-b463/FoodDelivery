@@ -3,7 +3,6 @@
 const Shimmer= () =>{
    
     return(
-
       <div data-testid='shimmer' className="my-10 flex flex-wrap gap-7 justify-center mx-8">
       {Array(10)
         .fill("")

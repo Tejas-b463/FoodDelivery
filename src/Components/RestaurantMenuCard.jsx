@@ -1,4 +1,3 @@
-// import ItemList from "./ItemList";
 import { useState } from "react"
 import ItemCart from "./ItemCart"
 import {IoIosArrowUp, IoIosArrowDown} from "react-icons/io"
@@ -22,7 +21,6 @@ const RestaurantMenuCard = ({data}) =>{
       {/* Accordian Body */}
      { showItems &&  <ItemCart items={data.itemCards}/>}
     </div>
-    
     </div>
   )
 }

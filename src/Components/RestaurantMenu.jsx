@@ -12,7 +12,6 @@ const RestaurantMenu = () =>{
 
   const resMenu = useRetaurantMenu(resId)
 
-
   if(resMenu === null) return <Shimmer/>
 
   const{name,cuisines,areaName,city,avgRating,totalRatingsString,cloudinaryImageId,lastMileTravelString
@@ -28,7 +27,6 @@ const RestaurantMenu = () =>{
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   )
   // console.log(categories)
-  
   return (
     <div className="">
     <div className="my-6 p-2 mx-2 flex items-center justify-center gap-x-96 text-left">
@@ -37,7 +35,7 @@ const RestaurantMenu = () =>{
         <img className="w-20 mx-3 rounded-lg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"+cloudinaryImageId} alt="" />
         </div>
         <div>
-    <h1 className="font-bold text-xl text-2xl">{name}</h1>
+    <h1 className="font-bold text-xl">{name}</h1>
     <p className="my-1 text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[120%]  text-[rgb(0,0,0,0.5)]">{cuisines.join(", ")}</p>
     <p className="text-sm text-[rgb(0,0,0,0.6)]">{areaName}, {city}</p>
     </div>
@@ -68,8 +66,6 @@ const RestaurantMenu = () =>{
     ))}
      </ScrollingCarousel>
     </div>
-  
-   
     <div className="">
   {categories?.map((category)=>(
     <RestaurantMenuCard
