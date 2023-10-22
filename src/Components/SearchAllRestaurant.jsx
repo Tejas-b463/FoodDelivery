@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link} from "react-router-dom"
 
 const SearchAllRestaurant = () => {
 return(
@@ -11,4 +11,4 @@ return(
   </div>
 )
 }
-export default SearchAllRestaurant;
+export default SearchAllRestaurant

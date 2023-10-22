@@ -1,14 +1,14 @@
-import { useDispatch } from "react-redux";
-import { MENU_IMG } from "../utils/constant";
-import { addItem } from "../utils/cartSlice";
-import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch } from "react-redux"
+import { MENU_IMG } from "../utils/constant"
+import { addItem } from "../utils/cartSlice"
+import toast, { Toaster } from 'react-hot-toast'
 
 
 const ItemList = ({items}) =>{
 
 
 
-        const dispatch = useDispatch();
+        const dispatch = useDispatch()
         const handleAddItem = (item)  =>{
           // toast
           toast.success('Item Added', {
@@ -45,4 +45,4 @@ const ItemList = ({items}) =>{
      </div> 
        )
 }
-export default ItemList;
+export default ItemList

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import useRestaurantData from './infinitescroll/useRestaurantData';
-import Shimmer from '../Components/Shimmer';
-import { Link } from 'react-router-dom';
-import RestaurantCard from '../Components/RestaurantCard';
+import useRestaurantData from './infinitescroll/useRestaurantData'
+import Shimmer from '../Components/Shimmer'
+import { Link } from 'react-router-dom'
+import RestaurantCard from '../Components/RestaurantCard'
 
 
 const Body = () => {
-  const [Loading, setLoading] = useState(false);
+  const [Loading, setLoading] = useState(false)
   const [page, setPage] = useState(10)
-  const { listOfRestaurant, filteredRestaurants, setFilteredRestaurants, setlistOfRestaurant } = useRestaurantData();
-  // console.log(listOfRestaurant);
+  const { listOfRestaurant, filteredRestaurants, setFilteredRestaurants, setlistOfRestaurant } = useRestaurantData()
+  // console.log(listOfRestaurant)
 
   async function getRestaurantMore() {
-    setLoading(true);
+    setLoading(true)
     try {
       const response = await fetch(
         'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/update',
@@ -46,26 +46,26 @@ const Body = () => {
           }),
         }
       );
-      const data = await response.json();
+      const data = await response.json()
       if (listOfRestaurant) {
-        let newRestaurants = data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants;
+        let newRestaurants = data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
         // console.log(newRestaurants);
 
-        setFilteredRestaurants((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
-        setlistOfRestaurant((prevRestaurants) => [...prevRestaurants, ...newRestaurants]);
+        setFilteredRestaurants((prevRestaurants) => [...prevRestaurants, ...newRestaurants])
+        setlistOfRestaurant((prevRestaurants) => [...prevRestaurants, ...newRestaurants])
       }
     } catch (error) {
-      console.error('Error fetching restaurants:', error);
+      console.error('Error fetching restaurants:', error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 
   useEffect(() => {
          if (page > 15) {
-        getRestaurantMore();
+        getRestaurantMore()
       }
-  }, [page]);
+  }, [page])
 
 
   const handelInfiniteScroll = async () => {
@@ -74,15 +74,15 @@ const Body = () => {
         window.innerHeight + document.documentElement.scrollTop + 1 >=
         document.documentElement.scrollHeight
       ) {
-        setPage((prev) => prev + 15);
+        setPage((prev) => prev + 15)
       }
     } catch (error) { }
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handelInfiniteScroll);
-    return () => window.removeEventListener("scroll", handelInfiniteScroll);
-  }, []);
+    window.addEventListener("scroll", handelInfiniteScroll)
+    return () => window.removeEventListener("scroll", handelInfiniteScroll)
+  }, [])
 
 
     return listOfRestaurant.length === 0 ? <Shimmer/> :(
@@ -94,26 +94,26 @@ const Body = () => {
           <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
               const filterList = listOfRestaurant.filter((res)=>
                  res.info.avgRating > 4
-              );
-              setlistOfRestaurant(filterList);
-              setFilteredRestaurants(filterList);
+              )
+              setlistOfRestaurant(filterList)
+              setFilteredRestaurants(filterList)
             }
             }>4.0+ Rating</button>
             <button className="mx-2 font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
               const filterList = listOfRestaurant.filter((res)=>
                  res.info.veg == true
-              );
-              setlistOfRestaurant(filterList);
-              setFilteredRestaurants(filterList);
+              )
+              setlistOfRestaurant(filterList)
+              setFilteredRestaurants(filterList)
             }
             }>Pure Veg</button>
 
 <button className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700" onClick={()=>{
               const filterList = listOfRestaurant.filter((res)=>
                  res.info.sla.deliveryTime < 25
-              );
-              setlistOfRestaurant(filterList);
-              setFilteredRestaurants(filterList);
+              )
+              setlistOfRestaurant(filterList)
+              setFilteredRestaurants(filterList)
             }
             }>Fast Delivery</button>
            
@@ -129,8 +129,8 @@ const Body = () => {
           </div>
   {Loading && <Shimmer/>}
       </>
-    );
-};
+    )
+}
 
 export default Body
 

@@ -1,45 +1,45 @@
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
 import GoogleButton from 'react-google-button'
 import {signInWithPopup} from "firebase/auth"
 import {auth,provider} from "../utils/firebase"
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 
 const SignIn = () => {
-    const [user, setUser] = useState(null);
-    const navigate = useNavigate();
+    const [user, setUser] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
         if (user) {
-          setUser(user);
+          setUser(user)
         } else {
-          setUser(null);
+          setUser(null)
         }
-      });
+      })
   
-      return () => unsubscribe();
-    }, []);
+      return () => unsubscribe()
+    }, [])
   
     const signInWithGoogle = async () => {
       try {
-        await signInWithPopup(auth,provider);
-        navigate("/");
+        await signInWithPopup(auth,provider)
+        navigate("/")
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
-    };
+    }
   
     const signOut = async () => {
       try {
        
-        await auth.signOut();
+        await auth.signOut()
        
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
-    };
+    }
   
     return (
       <div>
@@ -64,8 +64,8 @@ const SignIn = () => {
           </div>
         )}
       </div>
-    );
-  };
+    )
+  }
   
 
   
@@ -96,4 +96,4 @@ const SignIn = () => {
  
 //     )
 
-export default SignIn;
+export default SignIn

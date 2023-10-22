@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
-import { SWIGGY_API } from "../utils/constant";
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { SWIGGY_API } from "../utils/constant"
+import { ScrollingCarousel } from '@trendyol-js/react-carousel'
+import { Link } from "react-router-dom"
 import {PiStarThin} from "react-icons/pi"
-import ShimmerCarousel from "./ShimmerCarousel";
+import ShimmerCarousel from "./ShimmerCarousel"
 
 
 const CarouselRestaurant = () => {
-    const[carouselRestaurant, setCarouselRestaurant] = useState([]);
+    const[carouselRestaurant, setCarouselRestaurant] = useState([])
       
   
     useEffect(()=>{
-       resData();
+       resData()
     },[])
 
     const resData = async() => {
-        const data = await fetch(SWIGGY_API);
-        const json = await data.json(data);
-        // console.log(json);
-        // setCarouselRestaurant(json);
-        const resdata = json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-      setCarouselRestaurant(resdata);
+        const data = await fetch(SWIGGY_API)
+        const json = await data.json(data)
+        // console.log(json)
+        // setCarouselRestaurant(json)
+        const resdata = json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      setCarouselRestaurant(resdata)
     }
 
 return carouselRestaurant.length === 0 ? (<ShimmerCarousel/>) : (
@@ -50,4 +50,4 @@ return carouselRestaurant.length === 0 ? (<ShimmerCarousel/>) : (
 </div>
 )
 }
-export default CarouselRestaurant;
+export default CarouselRestaurant

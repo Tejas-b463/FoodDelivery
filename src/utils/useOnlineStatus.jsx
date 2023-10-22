@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 
 const useOnlineStatus = () => {
@@ -7,13 +7,13 @@ const useOnlineStatus = () => {
       
     useEffect(()=>{
         window.addEventListener("offline", ()=>{
-            setOnlineStatus(false);
+            setOnlineStatus(false)
         })
        window.addEventListener("online", ()=>{
-           setOnlineStatus(true);
-       });
+           setOnlineStatus(true)
+       })
     },[])
 
     return onlineStatus
 }
-export default useOnlineStatus;
+export default useOnlineStatus

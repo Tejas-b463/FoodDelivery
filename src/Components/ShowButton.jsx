@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const ShowButton = () => {
 return(
@@ -9,4 +9,4 @@ return(
    </Link>
 )
 }
-export default ShowButton;
+export default ShowButton

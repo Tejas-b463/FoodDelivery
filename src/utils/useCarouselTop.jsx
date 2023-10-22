@@ -5,15 +5,15 @@ const useCarouselCard = (carouselId) =>{
      const[carouselImg, setCarouselImg] = useState(null)
 
       useEffect(()=>{
-         fetchImages();
+         fetchImages()
     },[])
 
     const fetchImages = async() =>{
-        const data = await fetch( SWIGGY_API + carouselId);
-        const json = await data.json();
+        const data = await fetch( SWIGGY_API + carouselId)
+        const json = await data.json()
         setCarouselImg(json.data)
     }
-    return carouselImg;
+    return carouselImg
 
 }
 export default useCarouselCard

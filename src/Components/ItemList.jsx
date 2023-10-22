@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux"
 import {removeItem} from "../utils/cartSlice"
-import { MENU_IMG } from "../utils/constant";
+import { MENU_IMG } from "../utils/constant"
 
 const ItemList = ({items}) =>{
 
@@ -8,10 +8,10 @@ const ItemList = ({items}) =>{
 
   const totalItem =  items.length > 0 ? items.map((bill)=>
   (bill.card.info.price > 0 ? bill.card.info.price/100 : bill.card.info.defaultPrice/100))
-  .reduce((sum,a)=> sum + a,0):0;
-  const platFormFee = 5;
-  // const Discount = (totalItem)/100;
-  const toPay = (totalItem  + platFormFee);
+  .reduce((sum,a)=> sum + a,0):0
+  const platFormFee = 5
+  // const Discount = (totalItem)/100
+  const toPay = (totalItem  + platFormFee)
 
        return(
      <div className="grid grid-cols-2 justify-center my-12">
@@ -76,5 +76,5 @@ const ItemList = ({items}) =>{
           </div>
        )
 }
-export default ItemList;
+export default ItemList
 

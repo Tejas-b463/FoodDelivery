@@ -27,4 +27,4 @@ const ShimmerCarousel= () =>{
      </div>
     )
 }
-export default ShimmerCarousel;
+export default ShimmerCarousel

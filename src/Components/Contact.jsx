@@ -4,17 +4,17 @@ import {Link} from "react-router-dom"
 import {IoIosArrowUp, IoIosArrowDown} from "react-icons/io"
 
 const Contact = () => {
-  const[help,setHelp] = useState([]);
-  const [showItems, setShowItems] = useState(null);
+  const[help,setHelp] = useState([])
+  const [showItems, setShowItems] = useState(null)
   
   useEffect(()=>{
    fetchHelp()
   },[])
 
   const fetchHelp = async() =>{
-    const data = await fetch("https://www.swiggy.com/dapi/support/issues/partner-onboarding?");
-    const json = await data.json();
-    console.log(json);
+    const data = await fetch("https://www.swiggy.com/dapi/support/issues/partner-onboarding?")
+    const json = await data.json()
+    console.log(json)
     setHelp(json.data.issues.data)
   }
 
@@ -42,4 +42,4 @@ return (
   </div>
 )
 }
-export default Contact;
+export default Contact

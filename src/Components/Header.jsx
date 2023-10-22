@@ -1,12 +1,12 @@
 
-import { Link } from "react-router-dom";
-import { LOGO_URL } from "../utils/constant";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom"
+import { LOGO_URL } from "../utils/constant"
+import { useSelector } from "react-redux"
 import {MdFastfood} from "react-icons/md"
 import {FcGoogle} from "react-icons/fc"
 
 const Header = () =>{
-    const cartItems = useSelector((store)=>store.cart.items);
+    const cartItems = useSelector((store)=>store.cart.items)
     return(
     <nav className="flex justify-between items-center px-10 py-6 shadow-lg">
           <div>
@@ -49,4 +49,4 @@ const Header = () =>{
      </nav>
     )
 }
-export default Header;
+export default Header

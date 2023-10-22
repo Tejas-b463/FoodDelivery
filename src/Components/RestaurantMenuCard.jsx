@@ -4,7 +4,7 @@ import {IoIosArrowUp, IoIosArrowDown} from "react-icons/io"
 
 // controlled compoenents
 const RestaurantMenuCard = ({data}) =>{
-  const [showItems, setShowItems] = useState([]);
+  const [showItems, setShowItems] = useState([])
   const handleClick = () => {
     // setShowItems(!showItems)
     setShowItems(!showItems)
@@ -24,4 +24,4 @@ const RestaurantMenuCard = ({data}) =>{
     </div>
   )
 }
-export default RestaurantMenuCard;
+export default RestaurantMenuCard

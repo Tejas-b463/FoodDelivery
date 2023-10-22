@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import ItemList from "./ItemList";
-import {clearCart} from "../utils/cartSlice";
-import { Link } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from "react-redux"
+import ItemList from "./ItemList"
+import {clearCart} from "../utils/cartSlice"
+import { Link } from "react-router-dom"
+import toast, { Toaster } from 'react-hot-toast'
 
 
 const Cart = () =>{
@@ -12,8 +12,7 @@ const Cart = () =>{
 
     const handleClearCart = () =>{
       toast.error('Item Clear', {
-  position: "top-center",
- 
+  position: "top-center"
 })
         dispatch(clearCart())
     }
@@ -45,4 +44,4 @@ const Cart = () =>{
       </div>
     )
 }
-export default Cart;
+export default Cart

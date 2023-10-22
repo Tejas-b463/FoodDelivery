@@ -1,23 +1,23 @@
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
-import Shimmer from "./Shimmer";
+import { ScrollingCarousel } from '@trendyol-js/react-carousel'
+import Shimmer from "./Shimmer"
 import RestaurantMenuCard from "./RestaurantMenuCard"
-import { useParams } from "react-router-dom";
-import useRetaurantMenu from "../utils/useRestaurantMenu";
+import { useParams } from "react-router-dom"
+import useRetaurantMenu from "../utils/useRestaurantMenu"
 import {ImStarEmpty} from "react-icons/im"
 import {MdOutlineLocalOffer} from "react-icons/md"
 
 const RestaurantMenu = () =>{
 
-  const {resId}= useParams();
+  const {resId}= useParams()
 
   const resMenu = useRetaurantMenu(resId)
 
   if(resMenu === null) return <Shimmer/>
 
   const{name,cuisines,areaName,city,avgRating,totalRatingsString,cloudinaryImageId,lastMileTravelString
-  } = resMenu?.cards[0]?.card?.card?.info;
+  } = resMenu?.cards[0]?.card?.card?.info
 
-  const offerCards = resMenu?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+  const offerCards = resMenu?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers
   console.log(offerCards)
 
  const categories = 
@@ -77,4 +77,4 @@ const RestaurantMenu = () =>{
       </div>
   )
 }
-export default RestaurantMenu;
+export default RestaurantMenu

@@ -1,8 +1,9 @@
 import { useRef } from "react"
-import Slider from "react-slick";
-import { useParams } from "react-router-dom";
-import ShimmerCarousel from "./ShimmerCarousel";
-import useCarouselCard from "../utils/useCarouselCard";
+import Slider from "react-slick"
+import { useParams } from "react-router-dom"
+import ShimmerCarousel from "./ShimmerCarousel"
+import useCarouselCard from "../utils/useCarouselCard"
+import {IoIosArrowForward,IoIosArrowBack} from "react-icons/io"
 
 
 
@@ -10,29 +11,29 @@ const CarouselTop = () =>{
     const slider = useRef(null)
     const {carouselId} = useParams()
     const carouselImg = useCarouselCard(carouselId)
-    const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info;
-    // console.log(image);
+    const image = carouselImg?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info
+    // console.log(image)
 
     function SampleNextArrow(props) {
-      const { className, style, onClick } = props;
+      const { className, style, onClick } = props
       return (
         <div
           className={className}
           style={{ ...style, display: "block", background: "red" }}
           onClick={onClick}
         />
-      );
+      )
     }
     
     function SamplePrevArrow(props) {
-      const { className, style, onClick } = props;
+      const { className, style, onClick } = props
       return (
         <div
           className={className}
           style={{ ...style, display: "block", background: "green" }}
           onClick={onClick}
         />
-      );
+      )
     }
     
       const settings = {
@@ -72,6 +73,7 @@ const CarouselTop = () =>{
         prevArrow: <SamplePrevArrow />
         
       }
+      
 
      
         return carouselImg === null ? <ShimmerCarousel/> :  (
@@ -81,8 +83,8 @@ const CarouselTop = () =>{
            <h1 className="font-black text-3xl">Best offers for you</h1>
           </div>
           <div className="">
-           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1 " onClick={()=> slider.current.slickPrev()}> &#x2039; </button>
-           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-4 py-1" onClick={()=> slider.current.slickNext()}> &#x203A; </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-2 py-1 " onClick={()=> slider.current.slickPrev()}> <IoIosArrowBack/> </button>
+           <button className="text-lg font-large  bg-gray-200 rounded-full mx-1 px-2 py-1" onClick={()=> slider.current.slickNext()}><IoIosArrowForward/> </button>
            </div>
           </div>
            <Slider ref={slider} {...settings}>

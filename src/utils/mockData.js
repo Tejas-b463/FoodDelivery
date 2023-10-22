@@ -1563,5 +1563,5 @@ const resList = [{
             "type": "DEEPLINK"
         }
     }
-];
-export default resList;
+]
+export default resList

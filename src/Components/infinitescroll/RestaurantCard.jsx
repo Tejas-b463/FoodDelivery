@@ -11,10 +11,10 @@ const RestaurantCard = ({
   city,
   aggregatedDiscountInfoV3
 }) => {
-  const discountHeader = aggregatedDiscountInfoV3?.header;
-  const discountSubHeader = aggregatedDiscountInfoV3?.subHeader;
- 
-  const timeDelivery = sla?.deliveryTime;
+  const discountHeader = aggregatedDiscountInfoV3?.header
+  const discountSubHeader = aggregatedDiscountInfoV3?.subHeader
+
+  const timeDelivery = sla?.deliveryTime
 
   return (
     <div className="w-[17rem]  rounded-lg hover:shadow-2xl p-2">
@@ -26,7 +26,7 @@ const RestaurantCard = ({
         <h4 className="text-xl font-semibold  text-gray-900  px-2">{name}</h4>
         <p className="px-2 overflow-hidden text-ellipsis whitespace-nowrap w-[76%] leading-tight text-[rgb(0,0,0,0.7)]">{cuisines.join(", ")}</p>
         <div className="flex justify-between items-center ">
-         <h4 className="bg-green-600 text-white rounded-lg m-2 p-2">{avgRating} &#9734;</h4>
+         <h4 className="bg-green-600 text-white rounded-lg m-2 p-2">{avgRating}</h4>
          <div className="p-2">
          <p className="leading-tight text-[rgb(0,0,0,0.7)]"> {costForTwo}</p>
          <p>{timeDelivery} min</p>

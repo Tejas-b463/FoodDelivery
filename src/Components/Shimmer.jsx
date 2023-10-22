@@ -28,4 +28,4 @@ const Shimmer= () =>{
     </div>
     )
 }
-export default Shimmer;
+export default Shimmer
