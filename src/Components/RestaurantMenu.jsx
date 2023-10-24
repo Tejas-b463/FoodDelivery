@@ -42,7 +42,7 @@ const RestaurantMenu = () =>{
     </div>
     <div className="">
     <h6 className="bg-green-600 flex text-white py-2 px-1 rounded-lg items-center m-1"><ImStarEmpty className="mx-1"/>{avgRating}</h6>
-    <p leading-tight className="text-[rgb(0,0,0,0.5)] text-sm">{totalRatingsString}</p>
+    <p  className="text-[rgb(0,0,0,0.5)] text-sm">{totalRatingsString}</p>
     </div>
     </div>
     <div className='flex'>
@@ -69,7 +69,6 @@ const RestaurantMenu = () =>{
     <div className="">
   {categories?.map((category)=>(
     <RestaurantMenuCard
-     key={category.card.card.title}
      data={category?.card?.card}
     />
   ))}

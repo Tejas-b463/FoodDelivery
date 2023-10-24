@@ -13,7 +13,6 @@ const RestaurantCard = ({
 }) => {
   const discountHeader = aggregatedDiscountInfoV3?.header
   const discountSubHeader = aggregatedDiscountInfoV3?.subHeader
-
   const timeDelivery = sla?.deliveryTime
 
   return (

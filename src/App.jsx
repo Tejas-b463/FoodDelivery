@@ -12,14 +12,13 @@ import {Provider} from "react-redux"
 import appStore from "./utils/appStore"
 import Cart from "./Components/Cart"
 import Footer from "./Components/Footer"
-const About = lazy(() => import("./Components/About"))
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { Provider } from "react-redux"
 import Body from "./Components/Body"
 import SignIn from "./Components/SignIn"
 
-
+const About = lazy(() => import("./Components/About"))
 
 const App = () =>{
     return(
