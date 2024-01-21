@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
   return (
     <div className="">
       <div className="my-6 p-2 mx-2 flex items-center justify-center gap-x-96 text-left">
-        <div className="flex">
+        <div className="flex-wrap">
           <div>
             <img
               className="w-20 mx-3 rounded-lg"

@@ -20,6 +20,7 @@
     "author": "Tejas Banait",
     "license": "ISC",
     "devDependencies": {
+        "@testing-library/react": "^14.0.0",
         "process": "^0.11.10",
         "tailwindcss": "^3.3.3"
     },

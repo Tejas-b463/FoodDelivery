@@ -128,7 +128,7 @@ const Body = () => {
             </Link>
           ))}
           {/* Show More Restaurant */}
-          <div>{filteredRestaurants.length !== 0 && <ShowButton />}</div>
+          <div>{filteredRestaurants?.length !== 0 && <ShowButton />}</div>
         </div>
         <div className="flex items-center justify-center  text-lg font-bold">
           {filteredRestaurants?.length === 0 && <SearchAllRestaurant />}

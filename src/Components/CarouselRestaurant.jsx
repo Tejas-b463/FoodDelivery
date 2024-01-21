@@ -22,7 +22,7 @@ const CarouselRestaurant = () => {
     setCarouselRestaurant(resdata);
   };
 
-  return carouselRestaurant.length === 0 ? (
+  return carouselRestaurant?.length === 0 ? (
     <ShimmerCarousel />
   ) : (
     <div>

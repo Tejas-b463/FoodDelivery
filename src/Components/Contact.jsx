@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <div className="my-6">
       <h1 className="mx-80 text-2xl font-bold">Partner Onboardings</h1>
-      {help.map((res, index) => (
+      {help?.map((res, index) => (
         <div key={res.id} className="mx-80 p-4 my-4">
           <div
             className="flex justify-between cursor-pointer"

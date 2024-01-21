@@ -37,7 +37,7 @@ const ItemList = ({ items }) => {
                   {item.card.info.defaultPrice / 100 ||
                     item.card.info.price / 100}
                 </p>
-                <div className="flex items-center w-16 h-8 justify-center border border-gray-500">
+                {/* <div className="flex items-center w-16 h-8 justify-center border border-gray-500">
                   <span className="cursor-pointer text-3xl text-[rgba(0,0,0,0.5)]">
                     -
                   </span>
@@ -49,7 +49,7 @@ const ItemList = ({ items }) => {
                   <span className="cursor-pointer text-2xl text-green-600">
                     +
                   </span>
-                </div>
+                </div> */}
                 <button
                   className="my-2 text-gray-500 border border-gray-300 px-2 rounded"
                   onClick={() => dispatch(removeItem(item.card.info.id))}
@@ -95,10 +95,10 @@ const ItemList = ({ items }) => {
             <p className="py-2 font-bold text-lg leading-6">Top Pay</p>
             <p className="py-1 font-bold text-lg ">₹{toPay.toFixed(0)}</p>
           </div>
-          <div className="p-2 mx-6">
+          <div className="flex justify-center ml-8">
             <button
-              className="px-4 py-2 m-2 bg-green-500 text-white hover:shadow-lg rounded-lg"
-              onClick={() => alert("working on place order")}
+              className="px-4 py-2 my-4 m-2 bg-green-500 text-white hover:shadow-lg rounded"
+              onClick={() => alert("Order Placed !")}
             >
               Place Order
             </button>
