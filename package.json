@@ -31,7 +31,7 @@
         "@swc/helpers": "^0.5.3",
         "@trendyol-js/react-carousel": "^3.0.2",
         "firebase": "^10.5.0",
-        "htmlnano": "^2.1.0",
+        "htmlnano": "^0.2.3",
         "parcel": "^2.10.0",
         "primereact": "^10.0.5",
         "react": "^18.2.0",
