@@ -42,13 +42,13 @@ const CarouselTop = () => {
     infinite: true,
     arrows: false,
     speed: 700,
-    slidesToShow: 2,
+    slidesToShow: 6,
     slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 6,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -57,7 +57,7 @@ const CarouselTop = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 4,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -65,7 +65,7 @@ const CarouselTop = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -102,9 +102,9 @@ const CarouselTop = () => {
         {image?.map((pic) => (
           <div className="p-5" key={pic?.id}>
             <img
-              className="w-96 cursor-pointer"
+              className="w-96  cursor-pointer"
               src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/" +
+                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_160,h_192/" +
                 pic?.imageId
               }
               alt=""

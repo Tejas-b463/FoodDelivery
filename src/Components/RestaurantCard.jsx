@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
           alt="rescard-logo"
         />
         <span className="absolute rounded-lg bg-gradient-to-t from-black bottom-0 p-3 w-full font-black text-stone-50 text-xl ">
-          {resData?.info?.aggregatedDiscountInfoV3?.header}{" "}
+          {resData?.info?.aggregatedDiscountInfoV3?.header}
           {resData?.info?.aggregatedDiscountInfoV3?.subHeader}
         </span>
       </div>
@@ -30,11 +30,10 @@ const RestaurantCard = (props) => {
         <div className="flex justify-between items-center ">
           <h4 className="bg-green-700 text-white rounded-lg m-2 p-2 flex items-center gap-1">
             {avgRating}
-            <PiStarThin />{" "}
+            <PiStarThin />
           </h4>
           <div className="p-2">
             <p className="leading-tight text-[rgb(0,0,0,0.7)] text">
-              {" "}
               {costForTwo}
             </p>
             <p>{resData.info.sla.deliveryTime} min</p>

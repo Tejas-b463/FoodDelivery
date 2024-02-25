@@ -95,7 +95,7 @@ const Body = () => {
     return () => window.removeEventListener("scroll", handelInfiniteScroll);
   }, []);
 
-  return listOfRestaurant.length === 0 ? (
+  return listOfRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
     <>

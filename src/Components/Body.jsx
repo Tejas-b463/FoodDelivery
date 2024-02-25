@@ -26,11 +26,11 @@ const Body = () => {
     const jsonData = await data.json();
     console.log(jsonData);
     SetlistOfRestaustant(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredRestaurats(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -49,8 +49,6 @@ const Body = () => {
     <div className="m-10">
       <div className="">
         <CarouselTop />
-        <CarouselCard />
-        <CarouselRestaurant />
       </div>
       <div className="">
         <h1 className="mx-20 font-black text-3xl">
@@ -92,7 +90,7 @@ const Body = () => {
               className="font-medium border border-gray-300 px-3 py-2 rounded-full text-gray-700"
               onClick={() => {
                 const filterList = listOfRestaustant.filter(
-                  (res) => res.info.sla.deliveryTime < 25
+                  (res) => res?.info.sla.deliveryTime < 25
                 );
                 SetlistOfRestaustant(filterList);
                 setFilteredRestaurats(filterList);
@@ -127,12 +125,6 @@ const Body = () => {
               <RestaurantCard resData={restaurant} />
             </Link>
           ))}
-          {/* Show More Restaurant */}
-          <div>{filteredRestaurants?.length !== 0 && <ShowButton />}</div>
-        </div>
-        <div className="flex items-center justify-center  text-lg font-bold">
-          {filteredRestaurants?.length === 0 && <SearchAllRestaurant />}
-          <ul></ul>
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ const CarouselTop = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 6,
           infinite: true,
           dots: true,
         },

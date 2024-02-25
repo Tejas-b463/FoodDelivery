@@ -22,24 +22,24 @@ const RestaurantMenu = () => {
     totalRatingsString,
     cloudinaryImageId,
     lastMileTravelString,
-  } = resMenu?.cards[0]?.card?.card?.info;
+  } = resMenu?.cards[2]?.card?.card?.info;
 
   const offerCards =
-    resMenu?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers;
+    resMenu?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers;
   console.log(offerCards);
 
   const categories =
-    resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  // console.log(categories)
+  console.log(categories);
   return (
     <div className="">
       <div className="my-6 p-2 mx-2 flex items-center justify-center gap-x-96 text-left">
         <div className="flex-wrap">
-          <div>
+          {/* <div>
             <img
               className="w-20 mx-3 rounded-lg"
               src={
@@ -48,7 +48,7 @@ const RestaurantMenu = () => {
               }
               alt=""
             />
-          </div>
+          </div> */}
           <div>
             <h1 className="font-bold text-xl">{name}</h1>
             <p className="my-1 text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[120%]  text-[rgb(0,0,0,0.5)]">
