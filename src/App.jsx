@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Provider } from "react-redux";
 import Body from "./Components/Body";
 import SignIn from "./Components/SignIn";
+import Home from "./Components/Home";
 
 const App = () => {
   return (
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/body",
         element: <Body />,
       },
 
