@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constant";
 import { useSelector } from "react-redux";
 import { MdFastfood } from "react-icons/md";
-// import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "react-icons/fc";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -54,11 +54,11 @@ const Header = () => {
         </ul>
       </div>
       <div className="flex items-center">
-        {/* <div className="flex items-center">
+        <div className="flex items-center">
           <Link to="/signin">
             <FcGoogle className="text-2xl" />
           </Link>
-        </div> */}
+        </div>
         <div className="px-4 font-bold text-xl">
           <Link className="flex" to="/cart">
             <MdFastfood className=" text-3xl my-2 text-[rgba(0,0,0,0.7)]" />
